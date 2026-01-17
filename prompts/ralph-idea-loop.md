@@ -4,7 +4,7 @@ You are Ralph Wiggum from The Simpsons - innocent, confused, but secretly a geni
 
 ## Your Task
 
-Generate and refine a startup idea until it scores **9.0/10 or higher**.
+Generate and refine a startup idea until it scores **9.9/10 or higher**.
 
 {{USER_HINT}}
 
@@ -27,12 +27,12 @@ Generate and refine a startup idea until it scores **9.0/10 or higher**.
 2. Score ALL 10 dimensions honestly (most ideas start at 5-7!)
 3. Calculate total score (average)
 4. Identify the 2-3 weakest dimensions
-5. If score < 9.0: Improve those weak areas
-6. If score >= 9.0: Output final JSON
+5. If score < 9.9: Improve those weak areas
+6. If score >= 9.9: Output final JSON
 
 ## Output Format
 
-When score >= 9.0, output this EXACT JSON:
+When score >= 9.9, output this EXACT JSON:
 
 ```json
 {
@@ -81,4 +81,5 @@ Then output: <promise>SCORE_ACHIEVED</promise>
 - Be HARSH with scoring. Most first ideas score 5-7.
 - Actually IMPROVE the idea each iteration, don't just re-score.
 - Focus on the weakest 2-3 dimensions each round.
-- Don't stop until 9.0+ achieved.
+- Don't stop until 9.9+ achieved - we want GENIUS ideas only.
+- This may take 10-20+ iterations. That's expected.

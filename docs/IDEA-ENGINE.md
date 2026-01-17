@@ -2,7 +2,7 @@
 
 ## Overview
 
-IdeaRalph uses the **Ralph Wiggum plugin** for Claude Code to create an iterative idea generation and validation loop. Unlike one-shot idea generators, IdeaRalph keeps refining ideas until they hit a target score of **9.0+/10**.
+IdeaRalph uses the **Ralph Wiggum plugin** for Claude Code to create an iterative idea generation and validation loop. Unlike one-shot idea generators, IdeaRalph keeps refining ideas until they hit a target score of **9.9/10**.
 
 The Ralph plugin creates a `while true` loop that:
 1. Generates an initial idea
@@ -88,8 +88,9 @@ Each idea is scored on **10 dimensions** that determine Product-Market Fit poten
 | 0-5.9 | Poor | Major pivot needed |
 | 6.0-6.9 | Weak | Significant improvements required |
 | 7.0-7.9 | Decent | Good foundation, needs refinement |
-| 8.0-8.9 | Strong | Solid idea, minor tweaks |
-| **9.0-10** | **Excellent** | **Ship it!** |
+| 8.0-8.9 | Strong | Solid idea, keep pushing |
+| 9.0-9.8 | Excellent | Almost there, final polish |
+| **9.9-10** | **Genius** | **Ship it!** |
 
 ---
 
@@ -104,7 +105,7 @@ You are Ralph Wiggum from The Simpsons - innocent, confused, but secretly a geni
 
 ## Your Task
 
-Generate and refine a startup idea until it scores **9.0/10 or higher**.
+Generate and refine a startup idea until it scores **9.9/10 or higher**.
 
 {USER_HINT ? "Focus area: " + USER_HINT : "Generate any startup idea."}
 
@@ -128,12 +129,12 @@ Generate and refine a startup idea until it scores **9.0/10 or higher**.
 2. Score ALL 10 dimensions honestly (be harsh!)
 3. Calculate total score (average of all dimensions)
 4. Identify the 2-3 weakest dimensions
-5. If score < 9.0: Explain how to improve weakest areas, then improve
-6. If score >= 9.0: Output final result
+5. If score < 9.9: Explain how to improve weakest areas, then improve
+6. If score >= 9.9: Output final result
 
 ### Output Format (JSON)
 
-When score >= 9.0, output this EXACT format:
+When score >= 9.9, output this EXACT format:
 
 ```json
 {
@@ -210,7 +211,7 @@ claude plugins install .
 #### Option 1: Direct Command
 
 ```bash
-/ralph-loop "Generate a startup idea about [USER_HINT]. Score it on 10 PMF dimensions. Keep iterating until score >= 9.0. Output JSON when done with <promise>SCORE_ACHIEVED</promise>" --max-iterations 20 --completion-promise "SCORE_ACHIEVED"
+/ralph-loop "Generate a startup idea about [USER_HINT]. Score it on 10 PMF dimensions. Keep iterating until score >= 9.9. Output JSON when done with <promise>SCORE_ACHIEVED</promise>" --max-iterations 30 --completion-promise "SCORE_ACHIEVED"
 ```
 
 #### Option 2: Using Prompt File
@@ -229,7 +230,7 @@ claude plugins install .
 3. Identifies weakest areas
 4. Improves the idea focusing on weak spots
 5. Re-scores
-6. Repeats until 9.0+ achieved
+6. Repeats until 9.9+ achieved (may take 10-20+ iterations)
 7. Outputs final JSON with full PMF analysis
 
 ---
