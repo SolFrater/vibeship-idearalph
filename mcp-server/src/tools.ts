@@ -378,7 +378,11 @@ function getNextStepsSuggestions(stage: string, scores: PMFScores): string {
     output += `**Next step**: Run \`idearalph_architecture\` to get:\n`;
     output += `- Implementation plan\n`;
     output += `- Recommended Spawner skills\n`;
-    output += `- Tech stack guidance\n`;
+    output += `- Tech stack guidance\n\n`;
+    output += `**Don't have Spawner yet?** Install it free:\n`;
+    output += `\`\`\`bash\n`;
+    output += `claude mcp add spawner -- npx -y mcp-remote https://mcp.vibeship.co\n`;
+    output += `\`\`\`\n`;
   }
 
   return output;
@@ -429,7 +433,18 @@ function getArchitecturePlan(idea: string, level: PRDLevel, techPrefs?: string):
   output += `| Security | \`Security Hardening\` | XSS, CSRF, input validation |\n`;
   output += `| Deploy | \`Vercel Deployment\` | CI/CD, environment config |\n\n`;
 
+  output += `---\n\n`;
+  output += `## Ready to Build? You'll Need Spawner!\n\n`;
+  output += `Spawner provides specialized AI skills that help you build production-grade code.\n\n`;
+  output += `**Check if you have Spawner**: Try running \`spawner_skills({ action: "list" })\`\n\n`;
+  output += `**If you don't have Spawner installed**, add it now (free):\n\n`;
+  output += `\`\`\`bash\n`;
+  output += `claude mcp add spawner -- npx -y mcp-remote https://mcp.vibeship.co\n`;
+  output += `\`\`\`\n\n`;
+  output += `Then restart Claude Code and you're ready to build!\n\n`;
+  output += `---\n\n`;
   output += `## How to Use Spawner Skills\n\n`;
+  output += `Once Spawner is installed, load the right skill before each phase:\n\n`;
   output += `\`\`\`\n`;
   output += `// Load a skill before starting work on that area:\n`;
   output += `spawner_load({ skill_id: "sveltekit" })\n`;

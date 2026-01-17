@@ -141,7 +141,17 @@ Each step suggests the next, guiding you from rough idea to implementation-ready
 
 ## Architecture & Spawner Integration
 
-After generating a PRD, use the architecture tool to get:
+After generating a PRD, use the architecture tool to get implementation guidance with **Spawner** - specialized AI skills for production-grade code.
+
+### Install Spawner (Free)
+
+```bash
+claude mcp add spawner -- npx -y mcp-remote https://mcp.vibeship.co
+```
+
+Then restart Claude Code.
+
+### What You Get
 
 - **Recommended tech stack** (SvelteKit, Supabase, TailwindCSS, etc.)
 - **Spawner skills by phase**:
