@@ -913,24 +913,58 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
 
   <!-- Footer -->
   <footer class="bg-paper py-8 px-4">
-    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-ralph-yellow rounded-full border-2 border-chalkboard overflow-hidden">
-          <img src="/images/ralph-logo.png" alt="Ralph" class="w-full h-full object-cover" />
-        </div>
-        <span class="font-chalk text-chalkboard">IdeaRalph</span>
+    <div class="max-w-4xl mx-auto">
+      <!-- Layer 1: Ralph Quote -->
+      <div class="text-center pb-6 mb-6 border-b border-chalkboard/10">
+        <p class="text-chalkboard/60 text-sm ralph-voice">
+          "I made this. It was very simple." — Ralph
+        </p>
       </div>
 
-      <p class="text-chalkboard/60 text-sm">
-        Built with 🖍️ by
-        <a href="https://vibeship.com" class="text-sky-blue hover:underline">
-          Vibeship
-        </a>
-      </p>
+      <!-- Layer 2: Branding & Links -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <!-- Left: IdeaRalph + Legal -->
+        <div class="flex flex-col md:flex-row items-center gap-4">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-ralph-yellow rounded-full border-2 border-chalkboard overflow-hidden">
+              <img src="/images/ralph-logo.png" alt="Ralph" class="w-full h-full object-cover" />
+            </div>
+            <span class="font-chalk text-chalkboard">IdeaRalph</span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-chalkboard/40">
+            <a href="/terms" class="hover:text-chalkboard/70 transition-colors">Terms</a>
+            <span>·</span>
+            <a href="/privacy" class="hover:text-chalkboard/70 transition-colors">Privacy</a>
+          </div>
+        </div>
 
-      <p class="text-chalkboard/40 text-sm ralph-voice">
-        "I'm helping!" — Ralph Wiggum
-      </p>
+        <!-- Right: Tagline + Vibeship -->
+        <div class="flex items-center gap-3">
+          <span class="text-chalkboard/50 text-sm">Vibe coded. For vibe coders.</span>
+          <a
+            href="https://vibeship.co"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-1 text-chalkboard/70 hover:text-chalkboard transition-colors"
+          >
+            <img
+              src="https://raw.githubusercontent.com/vibeforge1111/vibeship-spawner/main/web/static/logo.png"
+              alt="Vibeship"
+              class="w-6 h-6 opacity-70 group-hover:opacity-100 transition-opacity"
+              style="filter: grayscale(100%) brightness(0.3);"
+            />
+            <span class="font-body text-sm font-semibold tracking-tight">vibeship</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Layer 3: Privacy Notice -->
+      <div class="mt-6 pt-4 border-t border-chalkboard/10 text-center">
+        <p class="text-chalkboard/40 text-xs max-w-2xl mx-auto">
+          Your ideas stay yours. IdeaRalph runs locally in Claude Code — no databases, no tracking, no data collection.
+          The MCP doesn't send your projects or ideas anywhere. GDPR compliant.
+        </p>
+      </div>
     </div>
   </footer>
 </main>
