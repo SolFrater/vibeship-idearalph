@@ -49,7 +49,7 @@
     </div>
 
     <!-- Content Overlay Layer -->
-    <div class="relative z-20 h-full flex flex-col items-center justify-center px-4 py-12">
+    <div class="relative z-20 h-full flex flex-col items-center justify-end px-4 pb-8 pt-8">
       {#if children}
         {@render children()}
       {/if}
