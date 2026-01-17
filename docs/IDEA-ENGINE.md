@@ -357,6 +357,85 @@ IdeaRalph finds those ideas.
 
 ---
 
+---
+
+## Quick Start: Testing with Ralph Plugin
+
+### Step 1: Install the Ralph Plugin
+
+```bash
+# Option A: Install from Claude Code plugin registry
+claude plugins install ralph-wiggum
+
+# Option B: Clone and install from source
+git clone https://github.com/anthropics/claude-code.git
+cd claude-code/plugins/ralph-wiggum
+claude plugins install .
+```
+
+### Step 2: Run the Idea Generation Loop
+
+```bash
+# Navigate to the IdeaRalph project
+cd /path/to/vibeship-idearalph
+
+# Run the Ralph loop with our prompt
+/ralph-loop prompts/ralph-idea-loop.md --max-iterations 30 --completion-promise "SCORE_ACHIEVED"
+```
+
+### Step 3: Watch the Magic
+
+Ralph will:
+1. Generate an initial idea (usually scores 5-7/10)
+2. Identify weak dimensions
+3. Improve those specific areas
+4. Re-score and iterate
+5. Keep going until 9.9+/10 achieved
+6. Output final JSON with `<promise>SCORE_ACHIEVED</promise>`
+
+### Step 4: Copy to IdeaRalph Website
+
+1. Copy the final JSON output from Claude Code
+2. Go to http://localhost:5178 (or deployed URL)
+3. Click "Ring the Bell"
+4. Click "I've run it in Claude Code →"
+5. Paste the JSON
+6. Click "Show My Idea"
+7. View PMF scores, save the idea, or generate PRD!
+
+### Example Session
+
+```
+$ /ralph-loop prompts/ralph-idea-loop.md --max-iterations 30 --completion-promise "SCORE_ACHIEVED"
+
+[Iteration 1]
+Generating idea: "PetMood - AI that reads your pet's emotions"
+Scores: Problem 6.2, Market 7.1, Unique 5.8, Feasible 8.0...
+Total: 6.4/10 - Below 9.9, improving uniqueness and problem clarity...
+
+[Iteration 2]
+Refined: "PetMood - Wearable that translates pet emotions to human language"
+Scores: Problem 7.5, Market 7.3, Unique 7.2, Feasible 7.8...
+Total: 7.2/10 - Improving monetization and defensibility...
+
+[Iteration 3-11...]
+
+[Iteration 12]
+Final: "MoodCollar - Real-time pet emotion translator with vet alerts"
+Scores: Problem 9.8, Market 9.5, Unique 9.9, Feasible 9.9...
+Total: 9.9/10 - TARGET ACHIEVED!
+
+{
+  "name": "MoodCollar",
+  "tagline": "Your pet finally speaks human",
+  ...
+}
+
+<promise>SCORE_ACHIEVED</promise>
+```
+
+---
+
 ## Resources
 
 - [Ralph Wiggum Plugin](https://github.com/anthropics/claude-code/tree/main/plugins/ralph-wiggum)
