@@ -1,5 +1,5 @@
 <script>
-  const lastUpdated = "January 2025";
+  const lastUpdated = "January 2026";
 </script>
 
 <svelte:head>

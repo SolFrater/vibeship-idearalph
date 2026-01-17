@@ -837,9 +837,9 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
   <section class="bg-gradient-to-b from-chalkboard to-chalkboard/90 py-16 md:py-24 px-4">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-3xl md:text-4xl font-chalk text-ralph-yellow mb-4">
-        Ideas So Dumb They're Genius
+        Straight From Ralph's Brain
       </h2>
-      <p class="text-white/60 mb-12">Real examples from Ralph's beautiful brain</p>
+      <p class="text-white/60 mb-12">The best ideas sound crazy at first</p>
 
       <div class="grid md:grid-cols-2 gap-6">
         <div
@@ -902,10 +902,10 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
 
       <div class="mt-12 p-6 bg-white/5 rounded-lg border border-white/10">
         <p class="text-white/80 ralph-voice text-lg">
-          Airbnb sounded dumb. Uber sounded dumb. Twitter sounded dumb.
+          "Strangers sleeping in your house? Strangers driving you around? 140 characters?"
         </p>
         <p class="text-ralph-yellow font-chalk text-2xl mt-2">
-          All of them worked.
+          Airbnb. Uber. Twitter. All billion-dollar ideas.
         </p>
       </div>
     </div>
