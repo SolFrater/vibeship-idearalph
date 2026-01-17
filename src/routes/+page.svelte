@@ -779,25 +779,6 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="bg-playground-sunset py-16 md:py-24 px-4">
-    <div class="max-w-2xl mx-auto text-center">
-      <RalphAvatar size="lg" mood="excited" />
-      <h2 class="font-chalk text-3xl md:text-4xl text-chalkboard mt-6 mb-4">
-        Ready to Generate Some Genius?
-      </h2>
-      <p class="ralph-voice text-chalkboard/80 mb-8">
-        "My brain has so many ideas it hurts! Let me share them with you!"
-      </p>
-      <button
-        onclick={() => { step = 'prompt'; window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-        class="btn-crayon text-xl md:text-2xl"
-      >
-        🔔 Ring the Bell
-      </button>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer class="bg-paper py-8 px-4">
     <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
