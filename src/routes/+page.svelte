@@ -1,8 +1,6 @@
 <script lang="ts">
   import { HeroVideo, DopeMeter, RalphAvatar } from '$lib/components';
 
-  let { data } = $props();
-
   // UI State
   let step = $state<'bell' | 'prompt' | 'paste' | 'result'>('bell');
   let userHint = $state('');
@@ -88,7 +86,7 @@ dopeLevel is 1-5 (5 = genius). Make it weird, surprising, and secretly brilliant
           <span class="text-3xl md:text-4xl">🔔</span>
           <span>Ring the Bell</span>
         </button>
-        <div class="mt-10 inline-block bg-white/90 px-5 py-2 rounded-full border-2 border-chalkboard/30 shadow-sm">
+        <div class="mt-4 inline-block bg-white px-5 py-2 rounded-full border-2 border-chalkboard/30 shadow-sm">
           <span class="text-chalkboard/70 text-sm">Powered by your Claude Code • No API costs</span>
         </div>
 
