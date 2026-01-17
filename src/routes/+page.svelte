@@ -33,104 +33,91 @@
 </script>
 
 <main class="bg-playground-sunset overflow-hidden">
-  <!-- Hero Section -->
-  <section class="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center px-4 text-center relative">
-    <!-- Background decorations -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute top-20 left-10 text-6xl opacity-20 animate-float">🎈</div>
-      <div class="absolute top-40 right-20 text-5xl opacity-20 animate-float" style="animation-delay: 0.5s;">🌈</div>
-      <div class="absolute bottom-40 left-20 text-4xl opacity-20 animate-float" style="animation-delay: 1s;">⭐</div>
-      <div class="absolute bottom-20 right-10 text-5xl opacity-20 animate-float" style="animation-delay: 1.5s;">🎨</div>
-    </div>
-
-    <!-- Ralph Character / Hero Video -->
-    <div
-      class="mb-8 transition-all duration-700 {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
-    >
-      <div class="relative">
-        <!-- Animated video when available, falls back to emoji avatar -->
-        <HeroVideo />
-
-        <!-- Speech bubble -->
-        <div
-          class="absolute -right-4 -top-4 bg-white rounded-full px-3 py-1 border-2 border-chalkboard
-                 shadow-crayon animate-bounce z-10"
-          style="animation-duration: 2s;"
-        >
-          <span class="text-sm">👋</span>
-        </div>
-
-        <!-- Excitement indicator when bell is ringing -->
-        {#if bellRinging}
-          <div class="absolute -left-2 top-1/2 -translate-y-1/2 animate-ping">
-            <span class="text-2xl">✨</span>
-          </div>
-          <div class="absolute -right-2 top-1/3 animate-ping" style="animation-delay: 0.2s;">
-            <span class="text-xl">💡</span>
-          </div>
-        {/if}
-      </div>
-    </div>
-
-    <!-- Title -->
-    <h1
-      class="text-5xl md:text-7xl lg:text-8xl font-chalk text-chalkboard mb-4
-             transition-all duration-700 delay-100
-             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
-    >
-      Idea<span class="text-playground-red">Ralph</span>
-    </h1>
-
-    <p
-      class="ralph-voice text-xl md:text-2xl lg:text-3xl text-chalkboard mb-2
-             transition-all duration-700 delay-200
-             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
-    >
-      "I'm a idea generator! And I'm helping!"
-    </p>
-
-    <p
-      class="text-base md:text-lg text-chalkboard/80 mb-8 max-w-lg
-             transition-all duration-700 delay-300
-             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
-    >
-      The dumbest genius you'll ever meet. Generate startup ideas so weird
-      they might actually work.
-    </p>
-
-    <!-- Spawn Button -->
-    <div
-      class="transition-all duration-700 delay-400
-             {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
-    >
-      <button
-        onclick={spawnRalph}
-        class="btn-crayon text-xl md:text-2xl flex items-center gap-3 group
-               {bellRinging ? 'animate-wiggle' : ''}"
+  <!-- Hero Section - Half-screen Video Background -->
+  <HeroVideo size="half">
+    <!-- Overlay Content -->
+    <div class="text-center max-w-4xl mx-auto">
+      <!-- Handwritten "Hi I'm" label -->
+      <div
+        class="mb-4 transition-all duration-700 {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
       >
-        <span class="text-2xl md:text-3xl group-hover:animate-wiggle">🔔</span>
-        Ring the Bell
-      </button>
-    </div>
+        <span class="inline-block bg-white/90 backdrop-blur-sm rounded-full px-6 py-2
+                     border-2 border-chalkboard shadow-crayon transform -rotate-2">
+          <span class="ralph-voice text-lg md:text-xl text-chalkboard">Hi, I'm</span>
+        </span>
+      </div>
 
-    <!-- Tagline -->
-    <p
-      class="mt-8 text-sm text-chalkboard/60
-             transition-all duration-700 delay-500
-             {mounted ? 'opacity-100' : 'opacity-0'}"
-    >
-      {#if data.session}
-        <span class="text-playground-green">✓</span> Ready to spawn Ralph!
-      {:else}
-        Sign up free • No credit card required
-      {/if}
-    </p>
+      <!-- Title -->
+      <h1
+        class="text-6xl md:text-8xl lg:text-9xl font-chalk mb-6
+               transition-all duration-700 delay-100
+               {mounted ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}"
+      >
+        <span class="text-chalkboard drop-shadow-[0_4px_0_rgba(0,0,0,0.2)]">Idea</span><span
+          class="text-playground-red drop-shadow-[0_4px_0_rgba(0,0,0,0.2)]">Ralph</span>
+      </h1>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <span class="text-2xl text-chalkboard/40">↓</span>
+      <!-- Tagline in thought bubble style -->
+      <div
+        class="mb-8 transition-all duration-700 delay-200
+               {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+      >
+        <div class="inline-block bg-white/95 backdrop-blur-sm rounded-2xl px-8 py-4
+                    border-4 border-chalkboard shadow-crayon-lg relative">
+          <p class="ralph-voice text-xl md:text-2xl lg:text-3xl text-chalkboard">
+            "I'm a idea generator! And I'm helping!"
+          </p>
+          <!-- Speech bubble tail -->
+          <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 w-6 h-6 bg-white border-r-4 border-b-4
+                      border-chalkboard transform rotate-45"></div>
+        </div>
+      </div>
+
+      <!-- Subtitle -->
+      <p
+        class="text-lg md:text-xl text-chalkboard/90 mb-10 max-w-2xl mx-auto
+               transition-all duration-700 delay-300 font-medium
+               {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+      >
+        The dumbest genius you'll ever meet. Generate startup ideas so weird
+        they might actually work.
+      </p>
+
+      <!-- CTA Button -->
+      <div
+        class="transition-all duration-700 delay-400
+               {mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}"
+      >
+        <button
+          onclick={spawnRalph}
+          class="btn-crayon text-xl md:text-2xl px-10 py-5 flex items-center gap-4 mx-auto
+                 transform hover:scale-105 transition-transform
+                 {bellRinging ? 'animate-wiggle' : ''}"
+        >
+          <span class="text-3xl md:text-4xl group-hover:animate-wiggle">🔔</span>
+          <span>Ring the Bell</span>
+        </button>
+      </div>
+
+      <!-- Status tag -->
+      <p
+        class="mt-8 transition-all duration-700 delay-500
+               {mounted ? 'opacity-100' : 'opacity-0'}"
+      >
+        {#if data.session}
+          <span class="inline-flex items-center gap-2 bg-playground-green/20 backdrop-blur-sm
+                       text-chalkboard px-4 py-2 rounded-full border-2 border-playground-green/50">
+            <span class="text-playground-green">✓</span> Ready to spawn Ralph!
+          </span>
+        {:else}
+          <span class="inline-flex items-center gap-2 bg-white/30 backdrop-blur-sm
+                       text-chalkboard px-4 py-2 rounded-full">
+            Sign up free • No credit card required
+          </span>
+        {/if}
+      </p>
     </div>
-  </section>
+  </HeroVideo>
 
   <!-- Stats Section -->
   <section class="bg-chalkboard py-12 px-4">
