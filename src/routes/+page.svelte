@@ -38,7 +38,7 @@
   }
 
   // UI State
-  let step = $state<'bell' | 'install' | 'run' | 'paste' | 'result' | 'prd'>('bell');
+  let step = $state<'bell' | 'install' | 'flow' | 'tips' | 'paste' | 'result' | 'prd'>('bell');
   let userHint = $state('');
   let pastedResult = $state('');
   let currentIdea = $state<IdeaResult | null>(null);
@@ -480,47 +480,89 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
             MCP = superpowers for Claude. Runs locally, no API key needed.
           </p>
 
-          <button onclick={() => step = 'run'} class="btn-crayon w-full text-sm">
+          <button onclick={() => step = 'flow'} class="btn-crayon w-full text-sm">
             Done, Next →
           </button>
         </div>
 
-      {:else if step === 'run'}
-        <!-- Step 2: How to Use -->
+      {:else if step === 'flow'}
+        <!-- Step 2: The Ralph Flow -->
         <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 border-4 border-chalkboard shadow-crayon-lg max-w-lg relative">
           <button onclick={() => step = 'bell'} class="absolute -top-3 -right-3 w-9 h-9 flex items-center justify-center rounded-full border-4 border-chalkboard bg-white text-chalkboard text-2xl font-bold shadow-crayon transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none z-10">
             <span class="-mt-0.5">&times;</span>
           </button>
           <div class="flex items-center gap-2 mb-4">
             <span class="bg-playground-green text-white font-bold rounded-full w-8 h-8 flex items-center justify-center">2</span>
-            <h2 class="font-chalk text-xl text-chalkboard">Just Talk to Claude!</h2>
+            <h2 class="font-chalk text-xl text-chalkboard">The Ralph Flow</h2>
           </div>
 
-          <p class="text-chalkboard/70 text-sm mb-4">The MCP gives Claude these superpowers. Just ask naturally:</p>
+          <p class="text-chalkboard/70 text-sm mb-4">From idea to launch-ready, Ralph guides you through:</p>
 
-          <div class="space-y-2 mb-4">
-            <div class="bg-chalkboard/5 rounded-lg p-3 border-l-4 border-ralph-yellow">
-              <p class="text-sm font-mono text-chalkboard">"Brainstorm startup ideas about AI for pets"</p>
-              <p class="text-xs text-chalkboard/60 mt-1">→ Generates & scores ideas on 10 PMF dimensions</p>
-            </div>
-            <div class="bg-chalkboard/5 rounded-lg p-3 border-l-4 border-playground-green">
-              <p class="text-sm font-mono text-chalkboard">"Refine this idea until it scores 9.5+"</p>
-              <p class="text-xs text-chalkboard/60 mt-1">→ Ralph Loop iterates until it's dope</p>
-            </div>
-            <div class="bg-chalkboard/5 rounded-lg p-3 border-l-4 border-sky-blue">
-              <p class="text-sm font-mono text-chalkboard">"Generate a PRD for this idea"</p>
-              <p class="text-xs text-chalkboard/60 mt-1">→ Full product requirements doc</p>
-            </div>
+          <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <span class="bg-ralph-yellow px-3 py-1.5 rounded-lg text-sm font-bold border-2 border-chalkboard">Brainstorm</span>
+            <span class="text-chalkboard">→</span>
+            <span class="bg-ralph-yellow/70 px-3 py-1.5 rounded-lg text-sm font-bold border-2 border-chalkboard">Validate</span>
+            <span class="text-chalkboard">→</span>
+            <span class="bg-playground-green/70 px-3 py-1.5 rounded-lg text-sm font-bold border-2 border-chalkboard">Iterate</span>
+            <span class="text-chalkboard">→</span>
+            <span class="bg-sky-blue/70 px-3 py-1.5 rounded-lg text-sm font-bold border-2 border-chalkboard">PRD</span>
           </div>
 
-          <div class="bg-ralph-yellow/20 rounded-lg p-3 mb-4">
+          <div class="flex flex-wrap justify-center gap-2 mb-5">
+            <span class="bg-purple-300 px-3 py-1.5 rounded-lg text-sm font-bold border-2 border-chalkboard">Design</span>
+            <span class="text-chalkboard">→</span>
+            <span class="bg-orange-300 px-3 py-1.5 rounded-lg text-sm font-bold border-2 border-chalkboard">Architecture</span>
+            <span class="text-chalkboard">→</span>
+            <span class="bg-playground-green px-3 py-1.5 rounded-lg text-sm font-bold border-2 border-chalkboard">Checklist</span>
+          </div>
+
+          <div class="bg-chalkboard/5 rounded-lg p-3 mb-4 text-center">
             <p class="text-sm text-chalkboard">
-              <span class="font-bold">7 MCP Tools:</span> brainstorm • validate • iterate • prd • design • architecture • checklist
+              Each step scores your idea on <span class="font-bold">10 PMF dimensions</span>
             </p>
+            <p class="text-xs text-chalkboard/60 mt-1">Ralph keeps iterating until your idea is dope (9.5+)</p>
+          </div>
+
+          <button onclick={() => step = 'tips'} class="btn-crayon w-full text-sm">
+            Next: How to Talk to Ralph →
+          </button>
+        </div>
+
+      {:else if step === 'tips'}
+        <!-- Step 3: Tips for Talking to Ralph -->
+        <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-6 border-4 border-chalkboard shadow-crayon-lg max-w-lg relative">
+          <button onclick={() => step = 'bell'} class="absolute -top-3 -right-3 w-9 h-9 flex items-center justify-center rounded-full border-4 border-chalkboard bg-white text-chalkboard text-2xl font-bold shadow-crayon transition-all duration-150 hover:translate-x-1 hover:translate-y-1 hover:shadow-none z-10">
+            <span class="-mt-0.5">&times;</span>
+          </button>
+          <div class="flex items-center gap-2 mb-4">
+            <span class="bg-sky-blue text-white font-bold rounded-full w-8 h-8 flex items-center justify-center">3</span>
+            <h2 class="font-chalk text-xl text-chalkboard">Talk to Ralph</h2>
+          </div>
+
+          <p class="text-chalkboard/70 text-sm mb-4">Just chat naturally. Here's what works:</p>
+
+          <div class="space-y-3 mb-4">
+            <div class="bg-ralph-yellow/20 rounded-lg p-3">
+              <p class="font-bold text-chalkboard text-sm mb-1">Start with an idea or topic</p>
+              <p class="text-xs text-chalkboard/70 italic">"Brainstorm ideas for a fitness app for busy parents"</p>
+            </div>
+            <div class="bg-playground-green/20 rounded-lg p-3">
+              <p class="font-bold text-chalkboard text-sm mb-1">Push for higher scores</p>
+              <p class="text-xs text-chalkboard/70 italic">"Iterate on this until it scores 9.5+"</p>
+            </div>
+            <div class="bg-sky-blue/20 rounded-lg p-3">
+              <p class="font-bold text-chalkboard text-sm mb-1">Go deeper when ready</p>
+              <p class="text-xs text-chalkboard/70 italic">"Generate a PRD" or "Design the UI" or "Plan the architecture"</p>
+            </div>
+          </div>
+
+          <div class="bg-chalkboard text-white rounded-lg p-3 mb-4">
+            <p class="text-sm font-bold mb-1">Pro tip:</p>
+            <p class="text-xs">Ralph works best when you give context. Tell him about your target users, constraints, or what makes you excited!</p>
           </div>
 
           <button onclick={() => step = 'bell'} class="btn-crayon w-full text-lg">
-            Got it, let's go!
+            Let's Go!
           </button>
         </div>
 
