@@ -911,12 +911,12 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
 
         <div class="bg-paper rounded-xl p-5 border-2 border-chalkboard/20 shadow-crayon">
           <div class="w-10 h-10 text-chalkboard mb-2">
-            <!-- Loop/cycle icon - refine -->
+            <!-- Spiral up icon - refine/iterate -->
             <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M128,40a88,88,0,0,1,88,88"/>
-              <polyline points="168,80 216,80 216,128"/>
-              <path d="M128,216a88,88,0,0,1-88-88"/>
-              <polyline points="88,176 40,176 40,128"/>
+              <path d="M128,224 A72,72,0,1,1,200,152"/>
+              <path d="M128,176 A48,48,0,1,1,176,128"/>
+              <path d="M128,128 A24,24,0,1,1,152,104"/>
+              <polyline points="152,56 152,104 200,104"/>
             </svg>
           </div>
           <h3 class="font-chalk text-lg text-chalkboard mb-1">Refine</h3>
@@ -941,16 +941,13 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
 
         <div class="bg-paper rounded-xl p-5 border-2 border-chalkboard/20 shadow-crayon">
           <div class="w-10 h-10 text-chalkboard mb-2">
-            <!-- Building blocks icon - architecture -->
+            <!-- Blueprint/layers icon - architecture -->
             <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="32" y="144" width="80" height="80" rx="4"/>
-              <rect x="144" y="144" width="80" height="80" rx="4"/>
-              <rect x="88" y="32" width="80" height="80" rx="4"/>
-              <line x1="128" y1="112" x2="128" y2="144"/>
-              <line x1="72" y1="144" x2="72" y2="128" />
-              <line x1="72" y1="128" x2="128" y2="128"/>
-              <line x1="184" y1="144" x2="184" y2="128"/>
-              <line x1="184" y1="128" x2="128" y2="128"/>
+              <rect x="48" y="48" width="160" height="160" rx="8"/>
+              <line x1="48" y1="104" x2="208" y2="104"/>
+              <line x1="48" y1="160" x2="208" y2="160"/>
+              <line x1="104" y1="104" x2="104" y2="208"/>
+              <circle cx="76" cy="76" r="8" fill="currentColor"/>
             </svg>
           </div>
           <h3 class="font-chalk text-lg text-chalkboard mb-1">Architecture</h3>
@@ -960,13 +957,16 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
 
         <div class="bg-paper rounded-xl p-5 border-2 border-chalkboard/20 shadow-crayon bg-ralph-yellow/10">
           <div class="w-10 h-10 text-chalkboard mb-2">
-            <!-- Flow/arrow icon - the flow -->
+            <!-- Connected nodes flow icon -->
             <svg viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="32" y1="128" x2="224" y2="128"/>
-              <polyline points="176,80 224,128 176,176"/>
-              <circle cx="64" cy="128" r="8" fill="currentColor"/>
-              <circle cx="112" cy="128" r="8" fill="currentColor"/>
-              <circle cx="160" cy="128" r="8" fill="currentColor"/>
+              <circle cx="48" cy="128" r="24"/>
+              <circle cx="128" cy="72" r="24"/>
+              <circle cx="128" cy="184" r="24"/>
+              <circle cx="208" cy="128" r="24"/>
+              <line x1="72" y1="116" x2="104" y2="84"/>
+              <line x1="72" y1="140" x2="104" y2="172"/>
+              <line x1="152" y1="84" x2="184" y2="116"/>
+              <line x1="152" y1="172" x2="184" y2="140"/>
             </svg>
           </div>
           <h3 class="font-chalk text-lg text-chalkboard mb-1">The Flow</h3>
