@@ -80,32 +80,50 @@
 </svelte:head>
 
 <main class="bg-playground-sunset overflow-hidden">
-  <!-- Hero Section -->
-  <section class="min-h-screen bg-gradient-to-b from-playground-sunset via-ralph-yellow/50 to-ralph-yellow flex items-center justify-center px-4 py-16">
-    <div class="max-w-4xl mx-auto text-center">
+  <!-- Hero Section with Video Background -->
+  <section class="relative min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden">
+    <!-- Video Background -->
+    <div class="absolute inset-0 z-0">
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="auto"
+        disablepictureinpicture
+        class="w-full h-full object-cover"
+      >
+        <source src="/videos/hackathon-hero.mp4" type="video/mp4" />
+      </video>
+      <!-- Gradient overlay for readability -->
+      <div class="absolute inset-0 bg-gradient-to-b from-chalkboard/60 via-chalkboard/40 to-chalkboard/70"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-4xl mx-auto text-center">
       <!-- Logos -->
       <div class="flex items-center justify-center gap-4 mb-8">
-        <div class="flex items-center gap-2 bg-white/80 px-4 py-2 rounded-xl border-2 border-chalkboard">
+        <div class="flex items-center gap-2 bg-white/90 px-4 py-2 rounded-xl border-3 border-chalkboard shadow-crayon">
           <img src="/images/ralph-logo.png" alt="IdeaRalph" class="w-8 h-8 rounded-full" />
           <span class="font-chalk text-chalkboard">IdeaRalph</span>
         </div>
-        <span class="text-2xl">×</span>
-        <div class="flex items-center gap-2 bg-white/80 px-4 py-2 rounded-xl border-2 border-chalkboard">
+        <span class="text-2xl text-white">×</span>
+        <div class="flex items-center gap-2 bg-white/90 px-4 py-2 rounded-xl border-3 border-chalkboard shadow-crayon">
           <span class="font-chalk text-chalkboard">Seedify</span>
         </div>
       </div>
 
       <!-- Title -->
-      <h1 class="font-chalk text-5xl md:text-7xl lg:text-8xl text-chalkboard mb-4 leading-tight">
+      <h1 class="font-chalk text-5xl md:text-7xl lg:text-8xl text-white mb-4 leading-tight drop-shadow-lg">
         THE RALPH LOOP
       </h1>
-      <p class="font-chalk text-3xl md:text-4xl text-chalkboard/80 mb-6">
+      <p class="font-chalk text-3xl md:text-4xl text-ralph-yellow mb-6 drop-shadow-md">
         Hackathon
       </p>
 
       <!-- Tagline -->
-      <p class="text-xl md:text-2xl text-chalkboard/70 mb-10 max-w-2xl mx-auto">
-        Build stupid-smart startups. Win <span class="font-bold text-chalkboard">$RALPH</span> tokens.
+      <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto drop-shadow">
+        Build stupid-smart startups. Win <span class="font-bold text-ralph-yellow">$RALPH</span> tokens.
       </p>
 
       <!-- Countdown -->
@@ -133,22 +151,22 @@
 
       <!-- Stats -->
       <div class="flex items-center justify-center gap-4 md:gap-6 mb-10">
-        <div class="bg-white/90 rounded-xl border-2 border-chalkboard/30 px-5 py-3">
+        <div class="bg-white rounded-xl border-3 border-chalkboard shadow-crayon px-5 py-3">
           <div class="font-chalk text-2xl text-playground-green">15%</div>
-          <div class="text-xs text-chalkboard/60">$RALPH Prize Pool</div>
+          <div class="text-xs text-chalkboard/70">$RALPH Prize Pool</div>
         </div>
-        <div class="bg-white/90 rounded-xl border-2 border-chalkboard/30 px-5 py-3">
+        <div class="bg-white rounded-xl border-3 border-chalkboard shadow-crayon px-5 py-3">
           <div class="font-chalk text-2xl text-chalkboard">{builders}</div>
-          <div class="text-xs text-chalkboard/60">Builders</div>
+          <div class="text-xs text-chalkboard/70">Builders</div>
         </div>
-        <div class="bg-white/90 rounded-xl border-2 border-chalkboard/30 px-5 py-3">
+        <div class="bg-white rounded-xl border-3 border-chalkboard shadow-crayon px-5 py-3">
           <div class="font-chalk text-2xl text-chalkboard">{projects}</div>
-          <div class="text-xs text-chalkboard/60">Projects</div>
+          <div class="text-xs text-chalkboard/70">Projects</div>
         </div>
       </div>
 
       <!-- CTA -->
-      <a href="#how-to-enter" class="btn-crayon text-xl px-10 py-4 inline-flex items-center gap-3">
+      <a href="#how-to-enter" class="btn-crayon text-xl px-10 py-5 inline-flex items-center gap-3 animate-pulse-subtle">
         <span>Start Building</span>
         <span class="text-2xl">→</span>
       </a>
@@ -506,3 +524,14 @@
     </div>
   </section>
 </main>
+
+<style>
+  @keyframes pulse-subtle {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+  }
+
+  .animate-pulse-subtle {
+    animation: pulse-subtle 2s ease-in-out infinite;
+  }
+</style>
