@@ -483,13 +483,6 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
           <button onclick={() => step = 'run'} class="btn-crayon w-full text-sm">
             Done, Next →
           </button>
-
-          <button
-            onclick={() => step = 'run'}
-            class="w-full text-chalkboard/50 hover:text-chalkboard text-sm py-2 mt-2"
-          >
-            I already have it installed →
-          </button>
         </div>
 
       {:else if step === 'run'}
