@@ -2,17 +2,18 @@
 // Only import this in +server.ts or +page.server.ts files!
 
 import Anthropic from '@anthropic-ai/sdk';
-import { ANTHROPIC_API_KEY } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 let client: Anthropic | null = null;
 
 function getClient(): Anthropic {
   if (!client) {
-    if (!ANTHROPIC_API_KEY) {
+    const apiKey = env.ANTHROPIC_API_KEY;
+    if (!apiKey) {
       throw new Error('ANTHROPIC_API_KEY is not configured');
     }
     client = new Anthropic({
-      apiKey: ANTHROPIC_API_KEY
+      apiKey
     });
   }
   return client;

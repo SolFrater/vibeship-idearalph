@@ -88,7 +88,7 @@
   }
 
   function copyCommand() {
-    navigator.clipboard.writeText('npx idearalph install --with-spawner');
+    navigator.clipboard.writeText('npx github:vibeforge1111/vibeship-idearalph install --with-spawner');
     copied = true;
     setTimeout(() => copied = false, 2000);
   }
