@@ -1,8 +1,10 @@
 {
   "name": "idearalph",
-  "version": "0.1.0",
-  "private": true,
+  "version": "2.2.0",
   "type": "module",
+  "bin": {
+    "idearalph": "./cli/bin/cli.js"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
