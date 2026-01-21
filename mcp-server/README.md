@@ -136,49 +136,25 @@ Each dimension has detailed scoring criteria (1-3, 4-6, 7-8, 9-10 bands) that gu
 
 ## Integration with Spawner Skills
 
-**Why skills matter:** Skills are specialized experts that dramatically improve output quality. Instead of generic responses, you get battle-tested patterns, anti-patterns to avoid, and gotchas that save you hours of debugging. Whether you're building auth, databases, or UI - specialized skills know the sharp edges.
+**Why skills?** They're specialized experts - you get production-grade patterns and gotchas instead of generic responses. Everyone building should use them.
 
-**Everyone should use skills** - they make the experience of creating things significantly better because they're focused experts, not generalists.
-
-### ⚡ Free Spawner (Available Now)
+### ⚡ Free Spawner
 
 ```bash
 npx github:vibeforge1111/vibeship-spawner-skills install --mcp
 ```
+462 skills, runs locally, zero cost.
 
-- 462 production-grade skills
-- Runs 100% locally, zero API costs
-- Patterns, anti-patterns, sharp edges for every major technology
+### 🚀 Premium Spawner (Coming Soon)
 
-### 🚀 Premium Spawner (Coming Very Soon)
-
-**Benchmarked significantly higher output quality than regular Claude Opus 4.5.**
-
-| Metric | Regular Claude Opus 4.5 | With Premium Spawner |
-|--------|------------------------|---------------------|
-| Code Quality | Baseline | **Substantially higher** |
-| Pattern Adherence | Generic | **Production-grade patterns** |
-| Edge Case Handling | Often misses | **Catches gotchas automatically** |
-
-**The output speaks for itself** - cleaner code, fewer bugs, production-ready from the first generation.
-
-Also significantly more token efficient compared to the free Spawner skills.
-
-📢 **Announcement imminent.** Subscription-based, accessible pricing.
+Benchmarked significantly higher output than regular Claude Opus 4.5. More token efficient than free skills. Announcement imminent.
 
 ### How the Handoff Works
 
-After architecture generation, IdeaRalph intelligently handles the transition to building:
+After architecture generation, IdeaRalph handles the transition:
 
-**If Spawner is available:**
-- Offers to start building immediately
-- Loads appropriate skills (supabase-backend, sveltekit, etc.)
-- Smooth handoff to implementation
-
-**If Spawner is NOT available:**
-- Guides you to install free Spawner (one command)
-- Saves your work to files first
-- Provides a resume prompt to continue after restart
+- **Spawner available**: Offers to start building immediately with specialized skills
+- **Spawner not available**: Guides you to install (one command), saves your work first
 
 ## UX Philosophy
 
