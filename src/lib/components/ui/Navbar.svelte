@@ -6,7 +6,7 @@
     <div class="flex items-center justify-between h-16">
       <!-- Logo with Ralph's head -->
       <a href="/" class="flex items-center gap-2 group">
-        <svg class="w-10 h-10 transition-transform group-hover:scale-110" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="w-10 h-10 transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="128" cy="128" r="120" fill="#FFD93D" stroke="none"/>
           <line x1="128" y1="48" x2="128" y2="16"/>
           <line x1="128" y1="208" x2="128" y2="240"/>

@@ -616,15 +616,15 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
           <p class="text-chalkboard/70 text-sm mb-4">Just chat naturally. Here's what works:</p>
 
           <div class="space-y-3 mb-4">
-            <div class="bg-ralph-yellow rounded-lg p-3 border-2 border-chalkboard">
+            <div class="bg-ralph-yellow rounded-lg p-3 border-3 border-chalkboard shadow-crayon">
               <p class="font-bold text-chalkboard text-sm mb-1">Start with an idea or topic</p>
               <p class="text-xs text-chalkboard/80 italic">"Brainstorm ideas for a fitness app for busy parents"</p>
             </div>
-            <div class="bg-playground-green/60 rounded-lg p-3 border-2 border-chalkboard">
+            <div class="bg-playground-green/60 rounded-lg p-3 border-3 border-chalkboard shadow-crayon">
               <p class="font-bold text-chalkboard text-sm mb-1">Push for higher scores</p>
               <p class="text-xs text-chalkboard/80 italic">"Iterate on this until it scores 9.5+"</p>
             </div>
-            <div class="bg-sky-blue/60 rounded-lg p-3 border-2 border-chalkboard">
+            <div class="bg-sky-blue/60 rounded-lg p-3 border-3 border-chalkboard shadow-crayon">
               <p class="font-bold text-chalkboard text-sm mb-1">Go deeper when ready</p>
               <p class="text-xs text-chalkboard/80 italic">"Generate a PRD" or "Design the UI" or "Plan the architecture"</p>
             </div>
@@ -1156,8 +1156,8 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
     <div class="max-w-4xl mx-auto">
       <!-- Layer 1: Ralph Quote -->
       <div class="text-center pb-6 mb-6 border-b border-chalkboard/10">
-        <p class="text-chalkboard/60 text-sm ralph-voice">
-          "I made this." — Ralph
+        <p class="text-chalkboard font-chalk text-2xl md:text-3xl">
+          "I made this!" <span class="text-ralph-yellow">— Ralph</span> 🖍️
         </p>
       </div>
 
@@ -1165,8 +1165,8 @@ Don't stop until 9.9+ achieved. This may take many iterations.`;
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <!-- Left: IdeaRalph + Legal -->
         <div class="flex flex-col md:flex-row items-center gap-4">
-          <div class="flex items-center gap-2">
-            <svg class="w-8 h-8" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+          <div class="flex items-center gap-2 group cursor-pointer">
+            <svg class="w-8 h-8 transition-transform duration-500 group-hover:rotate-[360deg]" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="128" cy="128" r="120" fill="#FFD93D" stroke="none"/>
               <line x1="128" y1="48" x2="128" y2="16"/>
               <line x1="128" y1="208" x2="128" y2="240"/>
