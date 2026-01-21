@@ -224,7 +224,8 @@
 
       <div class="relative z-10 text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          vibe/vibe vibecoin launchpad
+          <span class="block">vibe/vibe</span>
+          <span class="block">Vibecoin Launchpad</span>
         </h2>
         <p class="text-lg text-white/50">For vibe coders, vibecoins, and degens.</p>
       </div>
