@@ -393,8 +393,8 @@
       <div class="bg-white rounded-xl border-3 border-chalkboard shadow-crayon p-6 mb-8 text-left">
         <p class="text-sm text-chalkboard/70 mb-3">One command to install:</p>
         <div class="bg-chalkboard rounded-lg p-4 mb-4">
-          <code class="text-lg text-playground-green font-mono block">
-            npx idearalph install --with-spawner
+          <code class="text-sm text-playground-green font-mono block">
+            npx github:vibeforge1111/vibeship-idearalph install --with-spawner
           </code>
         </div>
         <button
