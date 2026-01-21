@@ -29,7 +29,13 @@ Then restart Claude Code:
 claude
 ```
 
-That's it! Start brainstorming.
+That's it! Now just talk to Ralph like you're talking to a friend:
+
+- "Hey Ralph, I have this idea for a fitness app..."
+- "What do you think about a marketplace for vintage sneakers?"
+- "Help me brainstorm something in the AI space"
+
+No special prompts needed. No commands to memorize. Just describe your idea and Ralph takes it from there.
 
 ## The Ralph Loop
 
