@@ -134,27 +134,51 @@ Each dimension has detailed scoring criteria (1-3, 4-6, 7-8, 9-10 bands) that gu
 - **target**: Keep iterating until target score reached (default: 9.5)
 - **max**: Run all iterations for maximum polish
 
-## Integration with Spawner
+## Integration with Spawner Skills
+
+**Why skills matter:** Skills are specialized experts that dramatically improve output quality. Instead of generic responses, you get battle-tested patterns, anti-patterns to avoid, and gotchas that save you hours of debugging. Whether you're building auth, databases, or UI - specialized skills know the sharp edges.
+
+**Everyone should use skills** - they make the experience of creating things significantly better because they're focused experts, not generalists.
+
+### ⚡ Free Spawner (Available Now)
+
+```bash
+npx github:vibeforge1111/vibeship-spawner-skills install --mcp
+```
+
+- 462 production-grade skills
+- Runs 100% locally, zero API costs
+- Patterns, anti-patterns, sharp edges for every major technology
+
+### 🚀 Premium Spawner (Coming Very Soon)
+
+**Benchmarked significantly higher output quality than regular Claude Opus 4.5.**
+
+| Metric | Regular Claude Opus 4.5 | With Premium Spawner |
+|--------|------------------------|---------------------|
+| Code Quality | Baseline | **Substantially higher** |
+| Pattern Adherence | Generic | **Production-grade patterns** |
+| Edge Case Handling | Often misses | **Catches gotchas automatically** |
+
+**The output speaks for itself** - cleaner code, fewer bugs, production-ready from the first generation.
+
+Also significantly more token efficient compared to the free Spawner skills.
+
+📢 **Announcement imminent.** Subscription-based, accessible pricing.
+
+### How the Handoff Works
 
 After architecture generation, IdeaRalph intelligently handles the transition to building:
 
-### If Spawner is Available
+**If Spawner is available:**
 - Offers to start building immediately
 - Loads appropriate skills (supabase-backend, sveltekit, etc.)
 - Smooth handoff to implementation
 
-### If Spawner is NOT Available
-IdeaRalph will:
-1. Explain the benefits (FREE, 450+ specialized skills, better output)
-2. Offer to install it automatically (no manual config needed!)
-3. Save your work to files first
-4. Provide a resume prompt to continue after restart
-
-**User only needs to:**
-1. Restart Claude Code (one keyboard shortcut)
-2. Paste the resume prompt (one copy-paste)
-
-Everything else is handled automatically.
+**If Spawner is NOT available:**
+- Guides you to install free Spawner (one command)
+- Saves your work to files first
+- Provides a resume prompt to continue after restart
 
 ## UX Philosophy
 
