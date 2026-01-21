@@ -26,8 +26,9 @@ npx github:vibeforge1111/vibeship-idearalph install
 
 Then restart Claude Code:
 ```
-/exit → claude
+/exit
 ```
+Then type `claude` to start a new session.
 
 ### Claude Desktop
 
