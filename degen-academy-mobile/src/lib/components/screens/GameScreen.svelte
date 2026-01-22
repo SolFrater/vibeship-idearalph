@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { pools, portfolio, ralphQuote, items, gasMultiplier, buyAudit, buyInsurance, halvingMultiplier, halvingTimeRemaining, gameState } from '../../stores/gameStore.svelte';
+  import { pools, portfolio, ralphQuote, ralphNotification, items, gasMultiplier, buyAudit, buyInsurance, halvingMultiplier, halvingTimeRemaining, gameState } from '../../stores/gameStore.svelte';
   import { GAME_CONSTANTS } from '../../../data/constants';
   import BottomBar from '../BottomBar.svelte';
   import PoolCard from '../PoolCard.svelte';
-  import Toast from '../Toast.svelte';
 
   const poolList = $derived(pools.value);
   const portfolioVal = $derived(portfolio.value);
   const quote = $derived(ralphQuote.value);
+  const notification = $derived(ralphNotification.value);
   const itemsVal = $derived(items.value);
   const gasMult = $derived(gasMultiplier.value);
   const halvingMult = $derived(halvingMultiplier.value);
@@ -19,6 +19,15 @@
   const insuranceCost = $derived(GAME_CONSTANTS.INSURANCE_COST * gasMult);
   const canAffordAudit = $derived(portfolioVal >= auditCost);
   const canAffordInsurance = $derived(portfolioVal >= insuranceCost);
+
+  // Notification type colors
+  const notificationColors = {
+    success: { bg: '#2a3a2a', border: '#4ade80', text: '#4ade80' },
+    danger: { bg: '#3a2a2a', border: '#f87171', text: '#f87171' },
+    warning: { bg: '#3a3528', border: '#fbbf24', text: '#fbbf24' },
+    info: { bg: '#2a2a3a', border: '#60a5fa', text: '#60a5fa' },
+    neutral: { bg: '#2d2d3a', border: '#a78bfa', text: '#a78bfa' },
+  };
 
   function formatMoney(amount: number): string {
     if (amount >= 1_000_000) {
@@ -43,9 +52,6 @@
   <!-- Dark overlay -->
   <div class="absolute inset-0 bg-slate-950/85"></div>
 
-  <!-- Toast Notifications -->
-  <Toast />
-
   <!-- Main Content -->
   <div class="relative z-10 flex-1 flex flex-col h-screen h-dvh overflow-hidden">
 
@@ -59,84 +65,95 @@
           <h1 class="text-lg font-bold text-white">Ralph's Degen Academy</h1>
         </div>
 
-        <!-- Light Neumorphic Controls Panel -->
+        <!-- Controls -->
         <div class="flex items-center" style="gap: 10px;">
-          <!-- Halving Timer - Light Neumorphic Badge -->
-          <div class="neu-light-badge" class:urgent={halvingUrgent}>
-            <span style="font-size: 11px; color: #666;">Halving</span>
-            <span class="font-mono font-bold" style="font-size: 14px; color: {halvingUrgent ? '#dc2626' : '#d97706'};">
+          <!-- Halving Timer -->
+          <div class="control-badge" class:urgent={halvingUrgent}>
+            <span style="font-size: 10px; color: rgba(255,255,255,0.5);">Halving</span>
+            <span class="font-mono font-bold" style="font-size: 13px; color: {halvingUrgent ? '#f87171' : '#fbbf24'};">
               {formatTime(halvingTime)}
             </span>
           </div>
 
-          <!-- Audit Button - Light Neumorphic -->
+          <!-- Audit Button -->
           <button
             onclick={() => buyAudit()}
             disabled={!canAffordAudit}
-            class="neu-light-btn"
+            class="control-btn"
             class:disabled={!canAffordAudit}
           >
             <span>🛡️</span>
-            <span class="font-medium" style="color: #444;">Audit</span>
+            <span class="font-medium">Audit</span>
             {#if itemsVal.audits > 0}
-              <span style="color: #7c3aed; font-weight: 700;">x{itemsVal.audits}</span>
+              <span style="color: #a78bfa; font-weight: 700;">x{itemsVal.audits}</span>
             {:else}
-              <span style="color: #888;">${auditCost.toFixed(0)}</span>
+              <span style="color: rgba(255,255,255,0.4);">${auditCost.toFixed(0)}</span>
             {/if}
           </button>
 
-          <!-- Insurance Button - Light Neumorphic -->
+          <!-- Insurance Button -->
           <button
             onclick={() => buyInsurance()}
             disabled={!canAffordInsurance}
-            class="neu-light-btn"
+            class="control-btn"
             class:disabled={!canAffordInsurance}
           >
             <span>🏥</span>
-            <span class="font-medium" style="color: #444;">Insurance</span>
+            <span class="font-medium">Insurance</span>
             {#if itemsVal.insurance > 0}
-              <span style="color: #059669; font-weight: 700;">x{itemsVal.insurance}</span>
+              <span style="color: #4ade80; font-weight: 700;">x{itemsVal.insurance}</span>
             {:else}
-              <span style="color: #888;">${insuranceCost.toFixed(0)}</span>
+              <span style="color: rgba(255,255,255,0.4);">${insuranceCost.toFixed(0)}</span>
             {/if}
           </button>
 
-          <!-- Wallet - Light Neumorphic -->
-          <div class="neu-light-badge" style="gap: 8px;">
-            <span style="font-size: 11px; color: #666;">Wallet</span>
-            <span class="font-mono font-bold" style="font-size: 16px; color: #1e293b;">{formatMoney(portfolioVal)}</span>
+          <!-- Wallet -->
+          <div class="control-badge" style="gap: 8px;">
+            <span style="font-size: 10px; color: rgba(255,255,255,0.5);">Wallet</span>
+            <span class="font-mono font-bold" style="font-size: 15px; color: #fff;">{formatMoney(portfolioVal)}</span>
           </div>
         </div>
       </div>
 
       <!-- Second Row: Ralph (left) | Stats (right) -->
       <div style="display: flex; gap: 16px;">
-        <!-- Ralph Notification Banner -->
-        <div class="rounded-lg flex items-center" style="flex: 1; padding: 10px 16px; background: #2d2d3a; gap: 10px;">
-          <span class="text-purple-300 font-semibold" style="font-size: 11px;">Ralph:</span>
-          <p class="text-white/70 italic" style="font-size: 12px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"{quote}"</p>
-        </div>
+        <!-- Ralph Notification/Quote Banner -->
+        {#if notification}
+          {@const colors = notificationColors[notification.type]}
+          <div
+            class="rounded-lg flex items-center transition-all"
+            style="flex: 1; padding: 10px 16px; background: {colors.bg}; border-left: 3px solid {colors.border}; gap: 10px;"
+          >
+            <span class="font-bold" style="font-size: 12px; color: {colors.text};">{notification.title}</span>
+            <p style="font-size: 12px; color: {colors.text}; opacity: 0.9; flex: 1;">{notification.message}</p>
+          </div>
+        {:else}
+          <div class="rounded-lg flex items-center" style="flex: 1; padding: 10px 16px; background: #2d2d3a; gap: 10px;">
+            <span class="text-purple-300 font-semibold" style="font-size: 11px;">Ralph:</span>
+            <p class="text-white/70 italic" style="font-size: 12px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"{quote}"</p>
+          </div>
+        {/if}
 
-        <!-- Stats Panel - Light Neumorphic -->
-        <div class="neu-light-panel" style="display: flex; align-items: center; gap: 16px;">
+        <!-- Stats Panel -->
+        <div class="stats-panel">
           <!-- Multiplier -->
           <div style="display: flex; align-items: center; gap: 6px;">
-            <span style="font-size: 10px; color: #666;">Mult</span>
-            <span class="font-mono font-bold" style="font-size: 13px; color: #7c3aed;">{halvingMult.toFixed(2)}x</span>
+            <span style="font-size: 10px; color: rgba(255,255,255,0.4);">Mult</span>
+            <span class="font-mono font-bold" style="font-size: 13px; color: #a78bfa;">{halvingMult.toFixed(2)}x</span>
           </div>
 
-          <div style="width: 1px; height: 16px; background: #ccc;"></div>
+          <div style="width: 1px; height: 14px; background: rgba(255,255,255,0.15);"></div>
 
           <!-- Target -->
           <div style="display: flex; align-items: center; gap: 6px;">
-            <span style="font-size: 10px; color: #666;">Target</span>
-            <span class="font-mono font-bold" style="font-size: 13px; color: #1e293b;">{formatMoney(GAME_CONSTANTS.WIN_PORTFOLIO)}</span>
+            <span style="font-size: 10px; color: rgba(255,255,255,0.4);">Target</span>
+            <span class="font-mono font-bold" style="font-size: 13px; color: rgba(255,255,255,0.8);">{formatMoney(GAME_CONSTANTS.WIN_PORTFOLIO)}</span>
           </div>
 
           <!-- Gas indicator (only when active) -->
           {#if gasMult > 1}
-            <div style="width: 1px; height: 16px; background: #ccc;"></div>
-            <div class="neu-light-indicator warning">
+            <div style="width: 1px; height: 14px; background: rgba(255,255,255,0.15);"></div>
+            <div class="status-indicator warning">
               <span>⛽</span>
               <span class="font-bold">{gasMult}x</span>
             </div>
@@ -144,8 +161,8 @@
 
           <!-- Whale indicator (only when active) -->
           {#if game.whaleEndTime && Date.now() < game.whaleEndTime}
-            <div style="width: 1px; height: 16px; background: #ccc;"></div>
-            <div class="neu-light-indicator info">
+            <div style="width: 1px; height: 14px; background: rgba(255,255,255,0.15);"></div>
+            <div class="status-indicator info">
               <span>🐋</span>
               <span class="font-bold">Active</span>
             </div>
@@ -182,75 +199,79 @@
 </div>
 
 <style>
-  /* Light Neumorphic Button */
-  .neu-light-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 16px;
-    font-size: 12px;
-    background: #e0e5ec;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 6px 6px 12px #b8bec7, -6px -6px 12px #ffffff;
-    transition: all 0.15s ease;
-    cursor: pointer;
-  }
-
-  .neu-light-btn:hover:not(.disabled) {
-    box-shadow: 4px 4px 8px #b8bec7, -4px -4px 8px #ffffff;
-  }
-
-  .neu-light-btn:active:not(.disabled) {
-    box-shadow: inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff;
-  }
-
-  .neu-light-btn.disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-
-  /* Light Neumorphic Badge */
-  .neu-light-badge {
+  /* Simple dark control button - subtle, no foggy shadows */
+  .control-btn {
     display: flex;
     align-items: center;
     gap: 6px;
     padding: 8px 14px;
-    background: #e0e5ec;
-    border-radius: 10px;
-    box-shadow: 4px 4px 8px #b8bec7, -4px -4px 8px #ffffff;
+    font-size: 12px;
+    background: #3a3a4a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    color: rgba(255,255,255,0.85);
   }
 
-  .neu-light-badge.urgent {
-    box-shadow: 4px 4px 8px #b8bec7, -4px -4px 8px #ffffff, inset 0 0 0 2px #fca5a5;
+  .control-btn:hover:not(.disabled) {
+    background: #444454;
+    border-color: rgba(255,255,255,0.2);
   }
 
-  /* Light Neumorphic Panel */
-  .neu-light-panel {
+  .control-btn:active:not(.disabled) {
+    background: #333343;
+  }
+
+  .control-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Simple badge */
+  .control-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: #3a3a4a;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+  }
+
+  .control-badge.urgent {
+    border-color: rgba(248, 113, 113, 0.5);
+    background: #3a3035;
+  }
+
+  /* Stats panel */
+  .stats-panel {
+    display: flex;
+    align-items: center;
+    gap: 16px;
     padding: 10px 20px;
-    background: #e0e5ec;
-    border-radius: 12px;
-    box-shadow: 6px 6px 12px #b8bec7, -6px -6px 12px #ffffff;
+    background: #2d2d3a;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
   }
 
-  /* Light Neumorphic Indicator */
-  .neu-light-indicator {
+  /* Status indicators */
+  .status-indicator {
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 4px 10px;
+    padding: 4px 8px;
     font-size: 11px;
-    border-radius: 8px;
-    box-shadow: inset 2px 2px 4px #b8bec7, inset -2px -2px 4px #ffffff;
+    border-radius: 6px;
   }
 
-  .neu-light-indicator.warning {
-    background: #fef3c7;
-    color: #d97706;
+  .status-indicator.warning {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
   }
 
-  .neu-light-indicator.info {
-    background: #dbeafe;
-    color: #2563eb;
+  .status-indicator.info {
+    background: rgba(96, 165, 250, 0.15);
+    color: #60a5fa;
   }
 </style>

@@ -12,6 +12,13 @@ export type Screen = 'menu' | 'game' | 'death' | 'win';
 
 type Toast = { id: string; title: string; message: string; type: 'success' | 'danger' | 'warning' | 'info' };
 
+// Ralph notification - replaces toasts, shows in Ralph section
+type RalphNotification = {
+  title: string;
+  message: string;
+  type: 'success' | 'danger' | 'warning' | 'info' | 'neutral';
+} | null;
+
 // Create initial game state
 function createInitialState(): GameState {
   const savedStats = saveManager.getStats();
@@ -46,6 +53,7 @@ const store = $state({
   currentScreen: 'menu' as Screen,
   game: createInitialState(),
   ralphQuote: getRandomQuote('welcome'),
+  ralphNotification: null as RalphNotification,
   toasts: [] as Toast[],
 });
 
@@ -82,6 +90,10 @@ export const gameState = {
 
 export const ralphQuote = {
   get value() { return store.ralphQuote; }
+};
+
+export const ralphNotification = {
+  get value() { return store.ralphNotification; }
 };
 
 export const toasts = {
@@ -479,13 +491,23 @@ export function setRalphQuote(category: QuoteCategory) {
 }
 
 export function showToast(title: string, message: string, type: 'success' | 'danger' | 'warning' | 'info') {
-  const id = crypto.randomUUID();
-  store.toasts = [...store.toasts, { id, title, message, type }];
+  // Now routes to Ralph notification instead of toast popup
+  showRalphNotification(title, message, type);
+}
 
-  // Auto remove after 4 seconds
-  setTimeout(() => {
-    store.toasts = store.toasts.filter(t => t.id !== id);
-  }, 4000);
+// Ralph announces notifications directly
+let notificationTimeout: number | null = null;
+
+export function showRalphNotification(title: string, message: string, type: 'success' | 'danger' | 'warning' | 'info' | 'neutral') {
+  // Clear any existing timeout
+  if (notificationTimeout) clearTimeout(notificationTimeout);
+
+  store.ralphNotification = { title, message, type };
+
+  // Auto-clear after 5 seconds, return to quote
+  notificationTimeout = setTimeout(() => {
+    store.ralphNotification = null;
+  }, 5000) as unknown as number;
 }
 
 export function removeToast(id: string) {
