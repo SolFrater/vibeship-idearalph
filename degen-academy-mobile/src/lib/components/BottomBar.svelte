@@ -22,8 +22,8 @@
 <!-- Full-width Progress Bar -->
 <div>
   <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
-    <span class="text-white/50" style="font-size: 12px;">Progress to {formatMoney(GAME_CONSTANTS.WIN_PORTFOLIO)}</span>
-    <span class="text-cyan-400 font-mono font-bold" style="font-size: 14px;">{progress.toFixed(1)}%</span>
+    <span class="font-chalk text-white/70" style="font-size: 15px;">Progress to {formatMoney(GAME_CONSTANTS.WIN_PORTFOLIO)}</span>
+    <span class="text-cyan-400 font-mono font-bold" style="font-size: 15px;">{progress.toFixed(1)}%</span>
   </div>
 
   <!-- Segmented Progress Bar - Full Width -->
