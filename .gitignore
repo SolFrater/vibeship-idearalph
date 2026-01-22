@@ -33,3 +33,8 @@ coverage/
 
 # Docs
 docs/
+
+# Degen Academy (migrated to dedicated repo)
+degen-academy/
+degen-academy-desktop/
+degen-academy-mobile/
