@@ -120,7 +120,7 @@
         </div>
         <div class="flex-1">
           <p class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-1">Ralph</p>
-          <p class="text-zinc-300 text-sm italic">"{quote}"</p>
+          <p class="text-zinc-300 text-sm font-handwritten">"{quote}"</p>
         </div>
       </div>
     </div>
@@ -145,7 +145,7 @@
 
   <!-- Footer -->
   <footer class="relative z-10 text-center py-4">
-    <p class="font-mono text-zinc-600 text-xs">
+    <p class="font-handwritten text-zinc-500 text-sm">
       The real rug was the lessons we learned along the way
     </p>
   </footer>
