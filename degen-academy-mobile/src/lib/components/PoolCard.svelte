@@ -34,92 +34,102 @@
 </script>
 
 <div
-  class="w-full bg-slate-900/60 backdrop-blur-lg rounded-2xl border transition-all duration-200
-         {pool.isRugged ? 'opacity-50 border-white/10' : 'border-white/10 hover:border-white/20 hover:bg-slate-900/70'}
-         {pool.isPumping ? 'border-emerald-500/50 shadow-lg shadow-emerald-500/10' : ''}"
-  style="padding: 32px 36px;"
+  class="w-full rounded-xl border transition-all duration-200
+         {pool.isRugged ? 'opacity-50 border-white/5' : 'border-white/5 hover:border-white/10'}
+         {pool.isPumping ? 'border-emerald-500/30' : ''}"
+  style="padding: 20px 24px; background: #2d2d3a;"
 >
   <!-- Header Row -->
-  <div class="flex items-center justify-between" style="margin-bottom: 28px;">
+  <div class="flex items-center justify-between" style="margin-bottom: 16px;">
     <!-- Token Info -->
-    <div class="flex items-center" style="gap: 16px;">
-      <div class="rounded-xl bg-white/10 border border-white/10 flex items-center justify-center" style="width: 52px; height: 52px; font-size: 26px;">
+    <div class="flex items-center" style="gap: 12px;">
+      <div class="rounded-lg flex items-center justify-center" style="width: 40px; height: 40px; font-size: 20px; background: #383848;">
         {pool.emoji}
       </div>
       <div>
-        <h3 class="font-bold text-white" style="font-size: 17px;">{pool.name}</h3>
-        <p class="text-white/40" style="font-size: 13px;">/ USDC</p>
+        <h3 class="font-semibold text-white" style="font-size: 14px;">{pool.name}</h3>
+        <p class="text-white/40" style="font-size: 11px;">/ USDC</p>
       </div>
     </div>
 
-    <!-- Risk Badge - more padding -->
-    <span class="font-semibold rounded-lg border {config.bg} {config.color} {config.border}" style="padding: 10px 16px; font-size: 12px;">
+    <!-- Risk Badge -->
+    <span class="font-medium rounded-md border {config.bg} {config.color} {config.border}" style="padding: 5px 10px; font-size: 10px;">
       {config.label}
     </span>
   </div>
 
   <!-- Stats Row -->
-  <div class="flex items-center" style="gap: 36px; margin-bottom: 24px;">
+  <div class="flex items-center" style="gap: 28px; margin-bottom: 16px;">
     <!-- APR -->
     <div>
-      <p class="text-white/40 uppercase tracking-wider" style="font-size: 11px; margin-bottom: 6px;">APR</p>
-      <p class="font-mono font-bold text-white" style="font-size: 32px;">
+      <p class="text-white/40 uppercase tracking-wider" style="font-size: 9px; margin-bottom: 4px;">APR</p>
+      <p class="font-mono font-bold text-white" style="font-size: 24px;">
         {pool.apy}%
         {#if pool.isPumping}
-          <span class="text-emerald-400" style="font-size: 18px; margin-left: 6px;">🔥</span>
+          <span class="text-emerald-400" style="font-size: 14px; margin-left: 4px;">🔥</span>
         {/if}
       </p>
     </div>
 
     <!-- TVL -->
     <div>
-      <p class="text-white/40 uppercase tracking-wider" style="font-size: 11px; margin-bottom: 6px;">TVL</p>
-      <p class="font-mono text-white/70" style="font-size: 22px;">{formatTVL(tvl)}</p>
+      <p class="text-white/40 uppercase tracking-wider" style="font-size: 9px; margin-bottom: 4px;">TVL</p>
+      <p class="font-mono text-white/60" style="font-size: 16px;">{formatTVL(tvl)}</p>
     </div>
   </div>
 
   <!-- Your Position Box -->
-  <div class="bg-white/5 border border-white/10 rounded-xl" style="padding: 18px 20px; margin-bottom: 24px;">
+  <div class="rounded-lg" style="padding: 12px 14px; margin-bottom: 16px; background: #252532;">
     <div class="flex items-center justify-between">
-      <span class="text-white/50" style="font-size: 14px;">Your Position</span>
-      <span class="font-mono text-white font-semibold" style="font-size: 16px;">
+      <span class="text-white/40" style="font-size: 12px;">Your Position</span>
+      <span class="font-mono text-white font-semibold" style="font-size: 14px;">
         ${pool.deposited.toLocaleString(undefined, { maximumFractionDigits: 0 })}
       </span>
     </div>
   </div>
 
-  <!-- Action Buttons - flat, no shadows -->
+  <!-- Action Buttons -->
   {#if !pool.isRugged}
-    <div class="flex" style="gap: 14px;">
-      <!-- Deposit Button - flat style -->
+    <div class="flex" style="gap: 10px;">
+      <!-- Deposit Button - dark neumorphism style -->
       <button
         onclick={() => deposit(pool.id, depositAmount)}
         disabled={!canDeposit}
-        class="flex-1 font-semibold rounded-lg
-               {canDeposit
-                 ? 'bg-white text-gray-900'
-                 : 'bg-white/10 text-white/30 cursor-not-allowed'}"
-        style="padding: 14px 20px; font-size: 14px; box-shadow: none; border: none;"
+        class="flex-1 font-semibold text-white/90"
+        style="
+          padding: 12px 16px;
+          font-size: 13px;
+          background: #3a3a4a;
+          border: none;
+          border-radius: 10px;
+          box-shadow: 3px 3px 6px #1e1e28, -2px -2px 5px #4a4a5a;
+          {canDeposit ? '' : 'opacity: 0.4; cursor: not-allowed;'}
+        "
       >
         Deposit +$1K
       </button>
 
-      <!-- Withdraw Button - flat outline style -->
+      <!-- Withdraw Button - matching neumorphism -->
       <button
         onclick={() => withdrawAll(pool.id)}
         disabled={!canWithdraw}
-        class="flex-1 font-semibold rounded-lg
-               {canWithdraw
-                 ? 'bg-transparent text-white'
-                 : 'bg-transparent text-white/30 cursor-not-allowed'}"
-        style="padding: 14px 20px; font-size: 14px; box-shadow: none; border: 1px solid rgba(255,255,255,0.2);"
+        class="flex-1 font-semibold text-white/70"
+        style="
+          padding: 12px 16px;
+          font-size: 13px;
+          background: #3a3a4a;
+          border: none;
+          border-radius: 10px;
+          box-shadow: 3px 3px 6px #1e1e28, -2px -2px 5px #4a4a5a;
+          {canWithdraw ? '' : 'opacity: 0.4; cursor: not-allowed;'}
+        "
       >
         Withdraw
       </button>
     </div>
   {:else}
-    <div class="rounded-lg text-center" style="padding: 14px 20px; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3);">
-      <p class="text-red-400 font-semibold flex items-center justify-center gap-2" style="font-size: 14px;">
+    <div class="rounded-lg text-center" style="padding: 12px 16px; background: rgba(239,68,68,0.1);">
+      <p class="text-red-400 font-semibold flex items-center justify-center gap-2" style="font-size: 12px;">
         <span>⚠️</span> Pool Rugged
       </p>
     </div>
