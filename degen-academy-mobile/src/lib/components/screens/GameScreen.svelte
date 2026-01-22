@@ -42,11 +42,9 @@
       </div>
     </header>
 
-    <!-- Top Stats Bar - Centered -->
-    <div class="flex-shrink-0 pb-8 flex justify-center px-8">
-      <div class="w-full max-w-3xl">
-        <TopBar />
-      </div>
+    <!-- Top Stats Bar - Full width, edge-to-edge -->
+    <div class="flex-shrink-0">
+      <TopBar />
     </div>
 
     <!-- Scrollable Pool Grid - Centered -->

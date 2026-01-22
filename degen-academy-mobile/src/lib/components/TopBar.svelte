@@ -27,7 +27,8 @@
   }
 </script>
 
-<div class="bg-slate-900/70 backdrop-blur-xl rounded-lg border border-white/10 p-8">
+<div class="bg-slate-900/70 backdrop-blur-xl border-y border-white/10 py-8 px-8">
+  <div class="max-w-4xl mx-auto">
   <!-- Main Stats Row -->
   <div class="flex items-center justify-between gap-8 mb-8">
     <!-- Portfolio Value -->
@@ -99,4 +100,5 @@
       {/if}
     </div>
   {/if}
+  </div>
 </div>
