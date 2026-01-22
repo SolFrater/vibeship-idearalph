@@ -62,7 +62,7 @@
         <!-- Logo & Title -->
         <div class="flex items-center gap-3">
           <img src="/ralph-logo.png" alt="Ralph" class="w-10 h-10 rounded-lg object-cover" />
-          <h1 class="text-lg font-bold text-white">Ralph's Degen Academy</h1>
+          <h1 class="text-lg font-chalk text-white">Ralph's Degen Academy</h1>
         </div>
 
         <!-- Wallet (display only, not clickable) -->
@@ -90,7 +90,7 @@
           {:else}
             <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
               <span class="font-semibold" style="font-size: 13px; color: #fff;">Ralph:</span>
-              <p class="italic" style="font-size: 13px; color: rgba(255,255,255,0.7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"{quote}"</p>
+              <p class="font-handwritten" style="font-size: 14px; color: rgba(255,255,255,0.7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"{quote}"</p>
             </div>
           {/if}
 
@@ -183,7 +183,7 @@
     <div class="flex-1 overflow-y-auto" style="padding-bottom: 32px;">
       <div class="flex flex-col items-center" style="padding: 32px 32px 0 32px;">
         <!-- Section Header -->
-        <h2 class="text-white font-semibold text-2xl" style="margin-bottom: 24px;">Liquidity Pools</h2>
+        <h2 class="text-white font-chalk text-2xl" style="margin-bottom: 24px;">Liquidity Pools</h2>
 
         <!-- Pool Grid - 2 cards per row, centered -->
         <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8">
