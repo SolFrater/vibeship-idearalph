@@ -66,51 +66,47 @@
         </div>
 
         <!-- Controls -->
-        <div class="flex items-center" style="gap: 10px;">
-          <!-- Halving Timer -->
-          <div class="control-badge" class:urgent={halvingUrgent}>
-            <span style="font-size: 10px; color: rgba(255,255,255,0.5);">Halving</span>
-            <span class="font-mono font-bold" style="font-size: 13px; color: {halvingUrgent ? '#f87171' : '#fbbf24'};">
-              {formatTime(halvingTime)}
-            </span>
-          </div>
-
+        <div class="flex items-center" style="gap: 12px;">
           <!-- Audit Button -->
           <button
             onclick={() => buyAudit()}
             disabled={!canAffordAudit}
-            class="control-btn"
+            class="action-btn"
             class:disabled={!canAffordAudit}
           >
-            <span>🛡️</span>
-            <span class="font-medium">Audit</span>
-            {#if itemsVal.audits > 0}
-              <span style="color: #a78bfa; font-weight: 700;">x{itemsVal.audits}</span>
-            {:else}
-              <span style="color: rgba(255,255,255,0.4);">${auditCost.toFixed(0)}</span>
-            {/if}
+            <span style="font-size: 16px;">🛡️</span>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1px;">
+              <span class="font-semibold" style="font-size: 12px; color: #fff;">Audit</span>
+              {#if itemsVal.audits > 0}
+                <span style="font-size: 10px; color: #a78bfa; font-weight: 600;">Owned: {itemsVal.audits}</span>
+              {:else}
+                <span style="font-size: 10px; color: rgba(255,255,255,0.5);">${auditCost.toFixed(0)}</span>
+              {/if}
+            </div>
           </button>
 
           <!-- Insurance Button -->
           <button
             onclick={() => buyInsurance()}
             disabled={!canAffordInsurance}
-            class="control-btn"
+            class="action-btn"
             class:disabled={!canAffordInsurance}
           >
-            <span>🏥</span>
-            <span class="font-medium">Insurance</span>
-            {#if itemsVal.insurance > 0}
-              <span style="color: #4ade80; font-weight: 700;">x{itemsVal.insurance}</span>
-            {:else}
-              <span style="color: rgba(255,255,255,0.4);">${insuranceCost.toFixed(0)}</span>
-            {/if}
+            <span style="font-size: 16px;">🏥</span>
+            <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 1px;">
+              <span class="font-semibold" style="font-size: 12px; color: #fff;">Insurance</span>
+              {#if itemsVal.insurance > 0}
+                <span style="font-size: 10px; color: #4ade80; font-weight: 600;">Owned: {itemsVal.insurance}</span>
+              {:else}
+                <span style="font-size: 10px; color: rgba(255,255,255,0.5);">${insuranceCost.toFixed(0)}</span>
+              {/if}
+            </div>
           </button>
 
           <!-- Wallet -->
-          <div class="control-badge" style="gap: 8px;">
-            <span style="font-size: 10px; color: rgba(255,255,255,0.5);">Wallet</span>
-            <span class="font-mono font-bold" style="font-size: 15px; color: #fff;">{formatMoney(portfolioVal)}</span>
+          <div class="wallet-display">
+            <span style="font-size: 10px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px;">Wallet</span>
+            <span class="font-mono font-bold" style="font-size: 18px; color: #fff;">{formatMoney(portfolioVal)}</span>
           </div>
         </div>
       </div>
@@ -136,18 +132,20 @@
 
         <!-- Stats Panel -->
         <div class="stats-panel">
-          <!-- Multiplier -->
+          <!-- Halving Timer -->
           <div style="display: flex; align-items: center; gap: 6px;">
-            <span style="font-size: 10px; color: rgba(255,255,255,0.4);">Mult</span>
-            <span class="font-mono font-bold" style="font-size: 13px; color: #a78bfa;">{halvingMult.toFixed(2)}x</span>
+            <span style="font-size: 10px; color: rgba(255,255,255,0.4);">Halving</span>
+            <span class="font-mono font-bold" style="font-size: 13px; color: {halvingUrgent ? '#f87171' : '#fbbf24'};">
+              {formatTime(halvingTime)}
+            </span>
           </div>
 
           <div style="width: 1px; height: 14px; background: rgba(255,255,255,0.15);"></div>
 
-          <!-- Target -->
+          <!-- Multiplier -->
           <div style="display: flex; align-items: center; gap: 6px;">
-            <span style="font-size: 10px; color: rgba(255,255,255,0.4);">Target</span>
-            <span class="font-mono font-bold" style="font-size: 13px; color: rgba(255,255,255,0.8);">{formatMoney(GAME_CONSTANTS.WIN_PORTFOLIO)}</span>
+            <span style="font-size: 10px; color: rgba(255,255,255,0.4);">Mult</span>
+            <span class="font-mono font-bold" style="font-size: 13px; color: #a78bfa;">{halvingMult.toFixed(2)}x</span>
           </div>
 
           <!-- Gas indicator (only when active) -->
@@ -199,49 +197,43 @@
 </div>
 
 <style>
-  /* Simple dark control button - subtle, no foggy shadows */
-  .control-btn {
+  /* Action button - more visible */
+  .action-btn {
     display: flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 14px;
-    font-size: 12px;
+    gap: 10px;
+    padding: 10px 16px;
     background: #3a3a4a;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
     transition: all 0.15s ease;
     cursor: pointer;
-    color: rgba(255,255,255,0.85);
   }
 
-  .control-btn:hover:not(.disabled) {
-    background: #444454;
-    border-color: rgba(255,255,255,0.2);
+  .action-btn:hover:not(.disabled) {
+    background: #454555;
+    border-color: rgba(255,255,255,0.25);
   }
 
-  .control-btn:active:not(.disabled) {
-    background: #333343;
+  .action-btn:active:not(.disabled) {
+    background: #353545;
   }
 
-  .control-btn.disabled {
+  .action-btn.disabled {
     opacity: 0.4;
     cursor: not-allowed;
   }
 
-  /* Simple badge */
-  .control-badge {
+  /* Wallet display - prominent */
+  .wallet-display {
     display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 8px 12px;
-    background: #3a3a4a;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    padding: 8px 16px;
+    background: #2d2d3a;
     border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 8px;
-  }
-
-  .control-badge.urgent {
-    border-color: rgba(248, 113, 113, 0.5);
-    background: #3a3035;
+    border-radius: 10px;
   }
 
   /* Stats panel */
