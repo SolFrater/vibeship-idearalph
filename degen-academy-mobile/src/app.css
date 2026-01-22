@@ -3,7 +3,7 @@
 /* DEGEN ACADEMY - Mobile-First Gaming Styles */
 
 /* Custom fonts */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Fredoka+One&family=Patrick+Hand&display=swap');
 
 @theme {
   --font-display: 'Space Grotesk', sans-serif;
@@ -93,6 +93,14 @@ html, body {
 
 .font-mono {
   font-family: 'JetBrains Mono', monospace;
+}
+
+.font-chalk {
+  font-family: 'Fredoka One', cursive;
+}
+
+.font-handwritten {
+  font-family: 'Patrick Hand', cursive;
 }
 
 /* Tap highlight removal for mobile */

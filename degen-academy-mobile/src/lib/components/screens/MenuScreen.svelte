@@ -1,159 +1,166 @@
 <script lang="ts">
-  import { startGame, ralphQuote } from '../../stores/gameStore.svelte';
-  import { GAME_CONSTANTS } from '../../../data/constants';
-
-  const quote = $derived(ralphQuote.value);
+  import { startGame } from '../../stores/gameStore.svelte';
 </script>
 
-<div class="min-h-screen min-h-dvh flex flex-col bg-cover bg-center relative"
-     style="background-image: url('/lab-background.png');">
+<div class="min-h-screen min-h-dvh flex flex-col bg-cover bg-center bg-fixed relative"
+     style="background-image: url('/ralph-lab-bg.png');">
 
-  <!-- Dark overlay with gradient -->
-  <div class="absolute inset-0 bg-gradient-to-b from-[var(--color-bg-dark)]/70 via-[var(--color-bg-dark)]/60 to-purple-950/80"></div>
-
-  <!-- Animated grid pattern overlay -->
-  <div class="absolute inset-0 opacity-5 pointer-events-none"
-       style="background-image: linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px);
-              background-size: 50px 50px;"></div>
+  <!-- Dark overlay -->
+  <div class="absolute inset-0 bg-slate-950/85"></div>
 
   <!-- Content -->
-  <div class="relative z-10 flex flex-col min-h-screen min-h-dvh p-4 sm:p-6 safe-area-top safe-area-bottom">
+  <div class="relative z-10 flex flex-col min-h-screen min-h-dvh p-6 sm:p-8">
 
     <!-- Header -->
-    <header class="text-center pt-6 sm:pt-10">
-      <div class="relative inline-block mb-4">
-        <div class="absolute inset-0 text-6xl sm:text-7xl blur-lg text-purple-500/30 animate-pulse">🧪</div>
-        <span class="text-6xl sm:text-7xl relative filter drop-shadow-[0_0_20px_rgba(139,92,246,0.5)]">🧪</span>
-      </div>
-      <h1 class="font-display text-4xl sm:text-6xl font-black text-transparent bg-clip-text
-                 bg-gradient-to-r from-purple-400 via-fuchsia-400 to-cyan-400 mb-3">
-        DEGEN ACADEMY
+    <header class="text-center" style="padding-top: 10vh;">
+      <h1 class="text-4xl sm:text-5xl font-chalk text-white">
+        Ralph's Degen Academy
       </h1>
-      <p class="text-cyan-400 text-sm sm:text-base font-mono tracking-wider">
-        THE LAB - Learn DeFi by getting rekt (safely)
-      </p>
     </header>
 
     <!-- Play Button -->
-    <div class="flex-1 flex items-center justify-center py-8">
+    <div class="flex justify-center" style="margin-top: 16px;">
       <button
         onclick={() => startGame()}
-        class="relative group bg-gradient-to-r from-purple-600 via-fuchsia-600 to-purple-600
-               hover:from-purple-500 hover:via-fuchsia-500 hover:to-purple-500
-               active:from-purple-700 active:via-fuchsia-700 active:to-purple-700
-               text-white font-display font-bold text-xl sm:text-2xl
-               px-10 sm:px-14 py-5 sm:py-6 rounded-2xl
-               shadow-xl shadow-purple-500/40 hover:shadow-purple-500/60
-               transition-all duration-200 transform hover:scale-105 active:scale-100
-               min-h-[64px] min-w-[220px] overflow-hidden"
+        class="play-btn group font-chalk"
       >
-        <!-- Shimmer effect -->
-        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent
-                    -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-        <span class="relative z-10 flex items-center justify-center gap-2">
-          <span>🚀</span>
-          ENTER THE LAB
-        </span>
+        <svg class="arrows-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
+        </svg>
+        <span>Enter the Lab</span>
       </button>
     </div>
 
-    <!-- Info Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-      <!-- Start Card -->
-      <div class="relative rounded-2xl overflow-hidden group">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-slate-950/90 backdrop-blur-md"></div>
-        <div class="absolute inset-0 border-2 border-emerald-500/30 rounded-2xl group-hover:border-emerald-400/50 transition-colors"></div>
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-emerald-400"></div>
+    <!-- Spacer -->
+    <div class="flex-1"></div>
 
-        <div class="relative p-4 flex flex-row sm:flex-col items-center sm:items-center gap-4 sm:gap-2">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-emerald-500/20 flex items-center justify-center
-                      border border-emerald-500/30 shadow-lg shadow-emerald-500/20">
-            <span class="text-3xl sm:text-4xl">💰</span>
-          </div>
-          <div class="text-left sm:text-center">
-            <p class="font-mono font-bold text-white text-lg sm:text-xl">${GAME_CONSTANTS.STARTING_PORTFOLIO.toLocaleString()}</p>
-            <p class="text-emerald-400/70 text-xs uppercase tracking-wider">Starting Funds</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Goal Card -->
-      <div class="relative rounded-2xl overflow-hidden group">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-slate-950/90 backdrop-blur-md"></div>
-        <div class="absolute inset-0 border-2 border-purple-500/30 rounded-2xl group-hover:border-purple-400/50 transition-colors"></div>
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-fuchsia-500"></div>
-
-        <div class="relative p-4 flex flex-row sm:flex-col items-center sm:items-center gap-4 sm:gap-2">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-purple-500/20 flex items-center justify-center
-                      border border-purple-500/30 shadow-lg shadow-purple-500/20">
-            <span class="text-3xl sm:text-4xl">🎯</span>
-          </div>
-          <div class="text-left sm:text-center">
-            <p class="font-mono font-bold text-white text-lg sm:text-xl">${GAME_CONSTANTS.WIN_PORTFOLIO.toLocaleString()}</p>
-            <p class="text-purple-400/70 text-xs uppercase tracking-wider">Goal to Graduate</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Halving Card -->
-      <div class="relative rounded-2xl overflow-hidden group">
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-800/90 via-slate-900/90 to-slate-950/90 backdrop-blur-md"></div>
-        <div class="absolute inset-0 border-2 border-amber-500/30 rounded-2xl group-hover:border-amber-400/50 transition-colors"></div>
-        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-yellow-500"></div>
-
-        <div class="relative p-4 flex flex-row sm:flex-col items-center sm:items-center gap-4 sm:gap-2">
-          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl bg-amber-500/20 flex items-center justify-center
-                      border border-amber-500/30 shadow-lg shadow-amber-500/20">
-            <span class="text-3xl sm:text-4xl">⏰</span>
-          </div>
-          <div class="text-left sm:text-center">
-            <p class="font-mono font-bold text-white text-lg sm:text-xl">5 min</p>
-            <p class="text-amber-400/70 text-xs uppercase tracking-wider">Halving Interval</p>
-          </div>
-        </div>
-      </div>
+    <!-- Section Title - Thought bubble style -->
+    <div class="section-bubble">
+      <p class="font-handwritten text-lg text-center" style="color: #2D3436;">
+        Learn DeFi by getting rekt (safely)
+      </p>
     </div>
 
-    <!-- Ralph Quote -->
-    <div class="relative rounded-2xl overflow-hidden group mb-4">
-      <div class="absolute inset-0 bg-gradient-to-r from-purple-900/40 via-slate-900/80 to-fuchsia-900/40 backdrop-blur-md"></div>
-      <div class="absolute inset-0 border-2 border-purple-500/30 rounded-2xl group-hover:border-purple-400/50 transition-colors"></div>
-      <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-fuchsia-500 to-purple-500"></div>
+    <!-- What You'll Learn - 3 Info Boxes -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" style="margin-bottom: 32px; max-width: 800px; margin-left: auto; margin-right: auto; width: 100%;">
+      <!-- Box 1: Yield Farming -->
+      <div class="info-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: #4ade80;">
+          <path d="M3 7c0-1.1.9-2 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>
+          <path d="M16 12a1 1 0 1 0 2 0 1 1 0 0 0-2 0"/>
+          <path d="M3 7l4-3h10l4 3"/>
+        </svg>
+        <h3 class="text-white font-semibold text-sm" style="margin-top: 16px;">Yield Farming</h3>
+        <p class="text-white/60 text-xs mt-2">Learn how APY works and why "too good to be true" usually is</p>
+      </div>
 
-      <div class="relative p-4 flex items-center gap-4">
-        <div class="relative flex-shrink-0">
-          <div class="absolute inset-0 bg-purple-500/30 rounded-full blur-md animate-pulse"></div>
-          <div class="relative w-12 h-12 rounded-full bg-gradient-to-br from-purple-600 to-fuchsia-600
-                      flex items-center justify-center border-2 border-purple-400/50
-                      shadow-lg shadow-purple-500/30">
-            <span class="text-2xl">🐕</span>
-          </div>
-        </div>
-        <div class="min-w-0 flex-1">
-          <div class="flex items-center gap-2 mb-1">
-            <p class="text-purple-400 text-xs font-bold uppercase tracking-wider">Ralph</p>
-            <span class="px-1.5 py-0.5 rounded text-[8px] font-bold uppercase bg-purple-500/30 text-purple-300 border border-purple-500/30">
-              Coach
-            </span>
-          </div>
-          <p class="text-zinc-300 text-sm italic leading-relaxed">"{quote}"</p>
-        </div>
+      <!-- Box 2: Risk Management -->
+      <div class="info-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: #fbbf24;">
+          <path d="M12 3l8 4v5c0 5.5-3.8 10.2-8 12-4.2-1.8-8-6.5-8-12V7l8-4z"/>
+          <path d="M9 12l2 2 4-4"/>
+        </svg>
+        <h3 class="text-white font-semibold text-sm" style="margin-top: 16px;">Risk Management</h3>
+        <p class="text-white/60 text-xs mt-2">Understand rug pulls, exploits, and how to protect yourself</p>
+      </div>
+
+      <!-- Box 3: DeFi Basics -->
+      <div class="info-box">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="color: #a78bfa;">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 8v8M8 12h8"/>
+        </svg>
+        <h3 class="text-white font-semibold text-sm" style="margin-top: 16px;">DeFi Mechanics</h3>
+        <p class="text-white/60 text-xs mt-2">Halvings, gas fees, whale dumps — experience it all risk-free</p>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="text-center py-4">
-      <p class="font-mono text-zinc-600 text-xs">
-        No real money. Just vibes and education. WAGMI (or not)
+    <footer class="text-center" style="padding: 24px 0;">
+      <p class="text-white/40 text-xs">
+        No real money. Just vibes and education.
       </p>
     </footer>
   </div>
 </div>
 
 <style>
-  @keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.6; }
+  .play-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-size: 17px;
+    color: #2D3436;
+    background: #FFD93D;
+    border: 3px solid #2D3436;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    box-shadow: 3px 3px 0px #2D3436;
+  }
+
+  .play-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #2D3436;
+  }
+
+  .play-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #2D3436;
+  }
+
+  .arrows-icon {
+    color: #2D3436;
+    transition: transform 0.2s ease;
+  }
+
+  .play-btn:hover .arrows-icon {
+    animation: arrows-move 0.6s ease-in-out infinite;
+  }
+
+  @keyframes arrows-move {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+  }
+
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 16px;
+    background: #3d3d4a;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: default;
+    transition: transform 0.2s ease;
+  }
+
+  .info-box:nth-child(1):hover {
+    transform: rotate(1deg) translateY(-4px);
+  }
+
+  .info-box:nth-child(2):hover {
+    transform: rotate(-1deg) translateY(-4px);
+  }
+
+  .info-box:nth-child(3):hover {
+    transform: rotate(1deg) translateY(-4px);
+  }
+
+  /* Section bubble - thought bubble style */
+  .section-bubble {
+    display: inline-block;
+    margin: 0 auto 20px auto;
+    padding: 12px 24px;
+    background: white;
+    border: 3px solid #2D3436;
+    border-radius: 20px;
+    box-shadow: 3px 3px 0px #2D3436;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 </style>
