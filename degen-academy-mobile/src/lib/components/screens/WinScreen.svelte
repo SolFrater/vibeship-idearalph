@@ -137,8 +137,8 @@
           </div>
         </div>
         <div class="flex-1">
-          <p class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-1">Ralph</p>
-          <p class="text-zinc-300 text-sm font-handwritten">"{quote}"</p>
+          <p class="text-purple-400 text-sm font-bold uppercase tracking-wider mb-1">Ralph</p>
+          <p class="text-zinc-300 font-handwritten" style="font-size: 17px;">"{quote}"</p>
         </div>
       </div>
     </div>

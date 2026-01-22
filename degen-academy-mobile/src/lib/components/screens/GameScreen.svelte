@@ -89,8 +89,8 @@
             </div>
           {:else}
             <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0;">
-              <span class="font-semibold" style="font-size: 13px; color: #fff;">Ralph:</span>
-              <p class="font-handwritten" style="font-size: 14px; color: rgba(255,255,255,0.7); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"{quote}"</p>
+              <span class="font-semibold" style="font-size: 15px; color: #fff;">Ralph:</span>
+              <p class="font-handwritten" style="font-size: 17px; color: rgba(255,255,255,0.8); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">"{quote}"</p>
             </div>
           {/if}
 
