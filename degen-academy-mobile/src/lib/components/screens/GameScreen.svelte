@@ -183,7 +183,7 @@
     <div class="flex-1 overflow-y-auto" style="padding-bottom: 32px;">
       <div class="flex flex-col items-center" style="padding: 32px 32px 0 32px;">
         <!-- Section Header -->
-        <h2 class="text-white font-chalk text-2xl" style="margin-bottom: 24px;">Liquidity Pools</h2>
+        <h2 class="text-white font-chalk text-3xl" style="margin-bottom: 24px;">Liquidity Pools</h2>
 
         <!-- Pool Grid - 2 cards per row, centered -->
         <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-8">
