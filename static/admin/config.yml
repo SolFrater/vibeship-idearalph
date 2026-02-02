@@ -100,19 +100,28 @@ collections:
               - { name: description, label: Description, widget: text }
               - { name: features, label: Features (comma separated), widget: string }
 
-  # ── Experts ──
-  - name: experts
-    label: Experts
-    folder: content/experts
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { name: name, label: Name, widget: string }
-      - { name: role, label: Role / Title, widget: string }
-      - { name: category, label: Category, widget: select, options: ["Coaches & Managers", "Sporting Directors & Management", "Sports Science & Performance", "Analysis, Scouting & Specialist", "Goalkeeper Coaches", "Communication & Media"] }
-      - { name: country, label: Country Flag Emoji, widget: string, hint: "e.g. 🇵🇹 🇪🇸 🇬🇧" }
-      - { name: photo, label: Photo, widget: image, required: false }
-      - { name: order, label: Sort Order, widget: number, default: 100 }
+      - name: experts
+        label: Our Experts
+        file: content/pages/experts.json
+        fields:
+          - { name: title, label: Page Title, widget: string }
+          - { name: heading, label: Heading, widget: string }
+          - { name: description, label: Description, widget: text }
+          - { name: cta_title, label: CTA Title, widget: string }
+          - { name: cta_text, label: CTA Text, widget: text }
+          - { name: cta_button, label: CTA Button Text, widget: string }
+          - name: categories
+            label: Expert Categories
+            widget: list
+            fields:
+              - { name: name, label: Category Name, widget: string }
+              - name: experts
+                label: Experts
+                widget: list
+                fields:
+                  - { name: name, label: Name, widget: string }
+                  - { name: role, label: Role / Title, widget: string }
+                  - { name: flag, label: Country Flag Emoji, widget: string, hint: "e.g. 🇵🇹 🇪🇸 🇬🇧" }
 
   # ── Blog Posts ──
   - name: blog
