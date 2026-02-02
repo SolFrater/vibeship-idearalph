@@ -5,23 +5,23 @@
 
 <!-- Hero -->
 <section class="relative bg-sport-dark overflow-hidden">
-  <div class="absolute inset-0 bg-gradient-to-br from-sport-primary/40 via-sport-dark to-sport-dark"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-sport-red/40 via-sport-dark to-sport-dark"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-36">
     <div class="max-w-3xl">
       <div class="flex items-center gap-2 mb-6">
-        <span class="px-3 py-1 bg-sport-accent/20 text-sport-accent text-xs font-sport-heading font-semibold rounded-full uppercase tracking-wider">Portugal & Spain</span>
+        <span class="px-3 py-1 bg-sport-red/20 text-sport-red text-xs font-sport-heading font-semibold rounded-full uppercase tracking-wider">Portugal & Spain</span>
         <span class="px-3 py-1 bg-sport-gold/20 text-sport-gold text-xs font-sport-heading font-semibold rounded-full uppercase tracking-wider">Since 2016</span>
       </div>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-sport-heading font-black text-white leading-tight mb-6">
         Where Players Grow<br/>
-        <span class="text-sport-accent">& Coaches Excel</span>
+        <span class="text-sport-red">& Coaches Excel</span>
       </h1>
       <p class="text-lg sm:text-xl text-sport-gray-300 font-sport-body leading-relaxed mb-10 max-w-2xl">
         Elite football development programs for players and DGERT/IPDJ certified education for coaches.
         Access Portugal's top coaching network across the Iberian Peninsula.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/players" class="px-8 py-4 bg-sport-accent hover:bg-sport-secondary text-white text-center font-sport-heading font-bold rounded-xl transition-colors text-lg">
+        <a href="/players" class="px-8 py-4 bg-sport-red hover:bg-red-700 text-white text-center font-sport-heading font-bold rounded-xl transition-colors text-lg">
           Player Programs
         </a>
         <a href="/courses" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-center font-sport-heading font-bold rounded-xl transition-colors text-lg border border-white/20">
@@ -36,17 +36,17 @@
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <span class="text-sport-accent text-sm font-sport-heading font-semibold uppercase tracking-wider">Two Paths to Excellence</span>
+      <span class="text-sport-red text-sm font-sport-heading font-semibold uppercase tracking-wider">Two Paths to Excellence</span>
       <h2 class="text-3xl sm:text-4xl font-sport-heading font-black text-sport-dark mt-3">Choose Your Track</h2>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Player Track -->
-      <div class="relative bg-gradient-to-br from-sport-primary to-sport-dark rounded-3xl p-8 lg:p-10 text-white overflow-hidden group hover:scale-[1.02] transition-transform">
-        <div class="absolute top-0 right-0 w-32 h-32 bg-sport-accent/10 rounded-full -translate-y-8 translate-x-8"></div>
+      <div class="relative bg-gradient-to-br from-sport-red to-sport-dark rounded-3xl p-8 lg:p-10 text-white overflow-hidden group hover:scale-[1.02] transition-transform">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-sport-red/10 rounded-full -translate-y-8 translate-x-8"></div>
         <div class="relative">
-          <div class="w-14 h-14 bg-sport-accent/20 rounded-2xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-sport-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <div class="w-14 h-14 bg-sport-red/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-sport-red" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
           <h3 class="text-2xl font-sport-heading font-bold mb-3">For Players</h3>
           <p class="text-sport-gray-300 mb-6 leading-relaxed">
@@ -56,12 +56,12 @@
           <ul class="space-y-3 mb-8">
             {#each ['Elite development camps (U14-U21)', 'Professional club trial placements', 'Summer intensive programs', 'International player pathways', 'Train at top Portuguese & Spanish facilities'] as item}
               <li class="flex items-center gap-2 text-sm">
-                <svg class="w-4 h-4 text-sport-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <svg class="w-4 h-4 text-sport-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 {item}
               </li>
             {/each}
           </ul>
-          <a href="/players" class="inline-flex items-center gap-2 px-6 py-3 bg-sport-accent hover:bg-white hover:text-sport-dark font-sport-heading font-semibold rounded-xl transition-colors">
+          <a href="/players" class="inline-flex items-center gap-2 px-6 py-3 bg-sport-red hover:bg-white hover:text-sport-dark font-sport-heading font-semibold rounded-xl transition-colors">
             Explore Player Programs
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -88,7 +88,7 @@
               </li>
             {/each}
           </ul>
-          <a href="/courses" class="inline-flex items-center gap-2 px-6 py-3 bg-sport-dark hover:bg-sport-primary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+          <a href="/courses" class="inline-flex items-center gap-2 px-6 py-3 bg-sport-dark hover:bg-sport-red text-white font-sport-heading font-semibold rounded-xl transition-colors">
             Explore Coach Programs
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </a>
@@ -110,7 +110,7 @@
         { value: '10+', label: 'Partner Clubs' },
       ] as stat}
         <div class="text-center">
-          <div class="text-3xl sm:text-4xl font-sport-heading font-black text-sport-primary">{stat.value}</div>
+          <div class="text-3xl sm:text-4xl font-sport-heading font-black text-sport-red">{stat.value}</div>
           <div class="text-sm text-sport-gray-500 font-sport-body mt-1">{stat.label}</div>
         </div>
       {/each}
@@ -122,7 +122,7 @@
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <span class="text-sport-accent text-sm font-sport-heading font-semibold uppercase tracking-wider">Iberian Peninsula</span>
+      <span class="text-sport-red text-sm font-sport-heading font-semibold uppercase tracking-wider">Iberian Peninsula</span>
       <h2 class="text-3xl sm:text-4xl font-sport-heading font-black text-sport-dark mt-3 mb-4">
         Train in Portugal & Spain
       </h2>
@@ -141,7 +141,7 @@
         { title: 'Year-Round Climate', desc: "Train outdoors 12 months a year. The Iberian climate makes it Europe's ideal base for football development.", icon: '☀️' },
         { title: 'International Gateway', desc: "Portugal and Spain are Europe's gateway — ideal for players and coaches from Africa, South America, and beyond.", icon: '🌍' },
       ] as item}
-        <div class="bg-sport-light rounded-2xl p-6 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors">
+        <div class="bg-sport-light rounded-2xl p-6 border border-sport-gray-100 hover:border-sport-red/30 transition-colors">
           <div class="text-3xl mb-3">{item.icon}</div>
           <h3 class="font-sport-heading font-bold text-sport-dark text-lg mb-2">{item.title}</h3>
           <p class="text-sport-gray-500 text-sm leading-relaxed">{item.desc}</p>
@@ -170,7 +170,7 @@
       ] as event}
         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-colors">
           <div class="flex items-center gap-2 mb-3">
-            <span class="px-2 py-0.5 text-xs font-sport-heading font-semibold rounded-full {event.type === 'Players' ? 'bg-sport-accent/20 text-sport-accent' : 'bg-sport-gold/20 text-sport-gold'}">{event.type}</span>
+            <span class="px-2 py-0.5 text-xs font-sport-heading font-semibold rounded-full {event.type === 'Players' ? 'bg-sport-red/20 text-sport-red' : 'bg-sport-gold/20 text-sport-gold'}">{event.type}</span>
           </div>
           <h3 class="font-sport-heading font-bold text-white text-lg mb-2">{event.title}</h3>
           <div class="space-y-1 text-sm text-sport-gray-400">
@@ -182,7 +182,7 @@
     </div>
 
     <div class="text-center mt-12">
-      <a href="/contact" class="inline-flex px-8 py-4 bg-sport-accent hover:bg-sport-secondary text-white font-sport-heading font-bold rounded-xl transition-colors text-lg">
+      <a href="/contact" class="inline-flex px-8 py-4 bg-sport-red hover:bg-red-700 text-white font-sport-heading font-bold rounded-xl transition-colors text-lg">
         Register Your Interest
       </a>
     </div>
@@ -202,7 +202,7 @@
 </section>
 
 <!-- CTA -->
-<section class="py-24 bg-gradient-to-br from-sport-primary to-sport-dark">
+<section class="py-24 bg-gradient-to-br from-sport-red to-sport-dark">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-3xl sm:text-4xl font-sport-heading font-black text-white mb-6">
       Ready to Start Your Journey?
@@ -212,7 +212,7 @@
       Sportrail is your gateway to Iberian football excellence.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/players" class="px-8 py-4 bg-sport-accent hover:bg-white hover:text-sport-dark text-white font-sport-heading font-bold rounded-xl transition-colors text-lg">
+      <a href="/players" class="px-8 py-4 bg-sport-red hover:bg-white hover:text-sport-dark text-white font-sport-heading font-bold rounded-xl transition-colors text-lg">
         I'm a Player
       </a>
       <a href="/courses" class="px-8 py-4 bg-sport-gold hover:bg-white hover:text-sport-dark text-sport-dark font-sport-heading font-bold rounded-xl transition-colors text-lg">

@@ -27,8 +27,8 @@
       <!-- Football Science Conference -->
       <div class="grid lg:grid-cols-2 gap-12 items-start">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 bg-sport-accent/10 rounded-full mb-4">
-            <span class="text-sport-accent text-sm font-sport-heading font-semibold">Annual Event</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-sport-red/10 rounded-full mb-4">
+            <span class="text-sport-red text-sm font-sport-heading font-semibold">Annual Event</span>
           </div>
           <h2 class="text-3xl font-sport-heading font-black text-sport-dark mb-4">Football Science Conference</h2>
           <p class="text-sport-gray-600 font-sport-body leading-relaxed mb-6">
@@ -45,16 +45,16 @@
               'Networking with researchers worldwide',
             ] as topic}
               <div class="flex items-center gap-3 text-sport-gray-600 text-sm">
-                <span class="w-1.5 h-1.5 bg-sport-accent rounded-full shrink-0"></span>
+                <span class="w-1.5 h-1.5 bg-sport-red rounded-full shrink-0"></span>
                 {topic}
               </div>
             {/each}
           </div>
-          <a href="/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+          <a href="/contact" class="inline-flex px-6 py-3 bg-sport-red hover:bg-red-700 text-white font-sport-heading font-semibold rounded-xl transition-colors">
             Register Interest
           </a>
         </div>
-        <div class="bg-gradient-to-br from-sport-primary to-sport-accent rounded-2xl p-10 text-center">
+        <div class="bg-gradient-to-br from-sport-red to-sport-accent rounded-2xl p-10 text-center">
           <div class="text-5xl mb-3">🔬</div>
           <h3 class="text-xl font-sport-heading font-bold text-white mb-2">Football Science Conference</h3>
           <p class="text-white/70 text-sm mb-6">Research • Innovation • Performance</p>
@@ -92,7 +92,7 @@
               </div>
             {/each}
           </div>
-          <a href="/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+          <a href="/contact" class="inline-flex px-6 py-3 bg-sport-red hover:bg-red-700 text-white font-sport-heading font-semibold rounded-xl transition-colors">
             Register Interest
           </a>
         </div>

@@ -7,7 +7,7 @@
 <section class="bg-sport-dark py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
-      <span class="text-sport-accent text-sm font-sport-heading font-semibold uppercase tracking-wider">Knowledge Hub</span>
+      <span class="text-sport-red text-sm font-sport-heading font-semibold uppercase tracking-wider">Knowledge Hub</span>
       <h1 class="text-4xl sm:text-5xl font-sport-heading font-black text-white mt-3 mb-6">
         Insights & Articles
       </h1>
@@ -33,7 +33,7 @@
         { title: 'Youth Development', icon: '🌱', count: 'Academy pathways, player development, age-group coaching', color: 'sport-primary' },
         { title: 'Football Management', icon: '🏢', count: 'Club structure, sporting direction, business of football', color: 'sport-accent' },
       ] as category}
-        <div class="bg-sport-light rounded-2xl p-6 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors cursor-pointer">
+        <div class="bg-sport-light rounded-2xl p-6 border border-sport-gray-100 hover:border-sport-red/30 transition-colors cursor-pointer">
           <div class="text-3xl mb-3">{category.icon}</div>
           <h3 class="font-sport-heading font-bold text-sport-dark text-lg mb-1">{category.title}</h3>
           <p class="text-sport-gray-500 text-sm">{category.count}</p>
@@ -83,12 +83,12 @@
           readTime: '6 min read',
         },
       ] as article}
-        <article class="bg-sport-light rounded-2xl p-6 lg:p-8 border border-sport-gray-100 hover:border-sport-accent/20 transition-colors">
+        <article class="bg-sport-light rounded-2xl p-6 lg:p-8 border border-sport-gray-100 hover:border-sport-red/20 transition-colors">
           <div class="flex flex-wrap items-center gap-3 mb-3">
-            <span class="px-3 py-1 bg-sport-accent/10 text-sport-accent text-xs font-sport-heading font-semibold rounded-full">{article.category}</span>
+            <span class="px-3 py-1 bg-sport-red/10 text-sport-red text-xs font-sport-heading font-semibold rounded-full">{article.category}</span>
             <span class="text-sport-gray-400 text-xs">{article.readTime}</span>
           </div>
-          <h3 class="text-xl font-sport-heading font-bold text-sport-dark mb-2 hover:text-sport-accent transition-colors cursor-pointer">
+          <h3 class="text-xl font-sport-heading font-bold text-sport-dark mb-2 hover:text-sport-red transition-colors cursor-pointer">
             {article.title}
           </h3>
           <p class="text-sport-gray-500 font-sport-body text-sm leading-relaxed">{article.excerpt}</p>
@@ -98,12 +98,12 @@
 
     <!-- Coming Soon -->
     <div class="mt-12 text-center">
-      <div class="bg-sport-primary/5 rounded-2xl p-8 border border-sport-primary/10">
+      <div class="bg-sport-red/5 rounded-2xl p-8 border border-sport-red/10">
         <h3 class="font-sport-heading font-bold text-sport-dark text-lg mb-2">More Content Coming Soon</h3>
         <p class="text-sport-gray-500 text-sm mb-4">
           We're building our English content library. Subscribe to be notified when new articles are published.
         </p>
-        <a href="/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+        <a href="/contact" class="inline-flex px-6 py-3 bg-sport-red hover:bg-red-700 text-white font-sport-heading font-semibold rounded-xl transition-colors">
           Subscribe to Updates
         </a>
       </div>

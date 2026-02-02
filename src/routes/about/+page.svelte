@@ -7,7 +7,7 @@
 <section class="bg-sport-dark py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
-      <span class="text-sport-accent text-sm font-sport-heading font-semibold uppercase tracking-wider">About Us</span>
+      <span class="text-sport-red text-sm font-sport-heading font-semibold uppercase tracking-wider">About Us</span>
       <h1 class="text-4xl sm:text-5xl font-sport-heading font-black text-white mt-3 mb-6">
         Building the Future of Football Coaching Since 2016
       </h1>
@@ -72,11 +72,11 @@
         <div class="bg-sport-light rounded-2xl p-8 border border-sport-gray-100">
           <h3 class="text-xl font-sport-heading font-bold text-sport-dark mb-4">Our Values</h3>
           <ul class="space-y-2 text-sport-gray-600 font-sport-body">
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-accent rounded-full"></span> Excellence in education delivery</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-accent rounded-full"></span> Practical over theoretical knowledge</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-accent rounded-full"></span> Access to elite professional networks</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-accent rounded-full"></span> Continuous innovation in coaching science</li>
-            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-accent rounded-full"></span> International perspective, Portuguese roots</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-red rounded-full"></span> Excellence in education delivery</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-red rounded-full"></span> Practical over theoretical knowledge</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-red rounded-full"></span> Access to elite professional networks</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-red rounded-full"></span> Continuous innovation in coaching science</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-sport-red rounded-full"></span> International perspective, Portuguese roots</li>
           </ul>
         </div>
       </div>
@@ -101,10 +101,10 @@
       ] as milestone}
         <div class="flex gap-6">
           <div class="shrink-0 w-24 text-right">
-            <span class="font-sport-heading font-black text-sport-accent text-lg">{milestone.year}</span>
+            <span class="font-sport-heading font-black text-sport-red text-lg">{milestone.year}</span>
           </div>
-          <div class="relative pb-8 border-l-2 border-sport-accent/30 pl-6">
-            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-sport-accent rounded-full border-4 border-sport-light"></div>
+          <div class="relative pb-8 border-l-2 border-sport-red/30 pl-6">
+            <div class="absolute -left-[9px] top-1 w-4 h-4 bg-sport-red rounded-full border-4 border-sport-light"></div>
             <h3 class="font-sport-heading font-bold text-sport-dark text-lg">{milestone.title}</h3>
             <p class="text-sport-gray-500 font-sport-body mt-1">{milestone.desc}</p>
           </div>
@@ -121,8 +121,8 @@
 
     <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       <div class="bg-sport-light rounded-2xl p-8 border border-sport-gray-100 text-center">
-        <div class="w-16 h-16 bg-sport-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <span class="font-sport-heading font-black text-sport-primary text-xl">DGERT</span>
+        <div class="w-16 h-16 bg-sport-red/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <span class="font-sport-heading font-black text-sport-red text-xl">DGERT</span>
         </div>
         <h3 class="font-sport-heading font-bold text-sport-dark text-lg mb-2">DGERT Certified</h3>
         <p class="text-sport-gray-500 font-sport-body text-sm">
@@ -132,8 +132,8 @@
       </div>
 
       <div class="bg-sport-light rounded-2xl p-8 border border-sport-gray-100 text-center">
-        <div class="w-16 h-16 bg-sport-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <span class="font-sport-heading font-black text-sport-primary text-xl">IPDJ</span>
+        <div class="w-16 h-16 bg-sport-red/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <span class="font-sport-heading font-black text-sport-red text-xl">IPDJ</span>
         </div>
         <h3 class="font-sport-heading font-bold text-sport-dark text-lg mb-2">IPDJ Accredited</h3>
         <p class="text-sport-gray-500 font-sport-body text-sm">

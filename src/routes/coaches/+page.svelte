@@ -7,7 +7,7 @@
 <section class="bg-sport-dark py-20 lg:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
-      <span class="text-sport-accent text-sm font-sport-heading font-semibold uppercase tracking-wider">Faculty</span>
+      <span class="text-sport-red text-sm font-sport-heading font-semibold uppercase tracking-wider">Faculty</span>
       <h1 class="text-4xl sm:text-5xl font-sport-heading font-black text-white mt-3 mb-6">
         70+ World-Class Experts
       </h1>
@@ -43,9 +43,9 @@
           { name: 'Ruben Pinheiro', role: 'Football Coach', flag: '🇵🇹' },
           { name: 'Carlos Pinto', role: 'U19 Coach, SC Torreense', flag: '🇵🇹' },
         ] as coach}
-          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors">
+          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-red/30 transition-colors">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-sport-primary/10 rounded-full flex items-center justify-center text-lg">{coach.flag}</div>
+              <div class="w-10 h-10 bg-sport-red/10 rounded-full flex items-center justify-center text-lg">{coach.flag}</div>
               <div>
                 <div class="font-sport-heading font-bold text-sport-dark text-sm">{coach.name}</div>
                 <div class="text-sport-gray-500 text-xs">{coach.role}</div>
@@ -72,7 +72,7 @@
           { name: 'Jose Collado', role: 'International Projects Director', flag: '🇪🇸' },
           { name: 'Duarte Damas', role: 'Business Development Manager', flag: '🇵🇹' },
         ] as director}
-          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors">
+          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-red/30 transition-colors">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 bg-sport-gold/10 rounded-full flex items-center justify-center text-lg">{director.flag}</div>
               <div>
@@ -105,9 +105,9 @@
           { name: 'Rick Cost', role: 'High Performance Director', flag: '🇳🇱' },
           { name: 'Derek Hansen', role: 'Performance Specialist', flag: '🇨🇦' },
         ] as scientist}
-          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors">
+          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-red/30 transition-colors">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-sport-accent/10 rounded-full flex items-center justify-center text-lg">{scientist.flag}</div>
+              <div class="w-10 h-10 bg-sport-red/10 rounded-full flex items-center justify-center text-lg">{scientist.flag}</div>
               <div>
                 <div class="font-sport-heading font-bold text-sport-dark text-sm">{scientist.name}</div>
                 <div class="text-sport-gray-500 text-xs">{scientist.role}</div>
@@ -133,9 +133,9 @@
           { name: 'Hugo Vicente', role: 'Director of Methodology, Viking FC', flag: '🇵🇹' },
           { name: 'Bram van de Vinne', role: 'Football Specialist', flag: '🇳🇱' },
         ] as analyst}
-          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors">
+          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-red/30 transition-colors">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-sport-primary/10 rounded-full flex items-center justify-center text-lg">{analyst.flag}</div>
+              <div class="w-10 h-10 bg-sport-red/10 rounded-full flex items-center justify-center text-lg">{analyst.flag}</div>
               <div>
                 <div class="font-sport-heading font-bold text-sport-dark text-sm">{analyst.name}</div>
                 <div class="text-sport-gray-500 text-xs">{analyst.role}</div>
@@ -155,9 +155,9 @@
           { name: 'Javier Barbero', role: 'Goalkeeper Coach', flag: '🇪🇸' },
           { name: 'Ricardo Pereira', role: 'Goalkeeper Coach', flag: '🇵🇹' },
         ] as gk}
-          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors">
+          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-red/30 transition-colors">
             <div class="flex items-center gap-3">
-              <div class="w-10 h-10 bg-sport-accent/10 rounded-full flex items-center justify-center text-lg">{gk.flag}</div>
+              <div class="w-10 h-10 bg-sport-red/10 rounded-full flex items-center justify-center text-lg">{gk.flag}</div>
               <div>
                 <div class="font-sport-heading font-bold text-sport-dark text-sm">{gk.name}</div>
                 <div class="text-sport-gray-500 text-xs">{gk.role}</div>
@@ -180,7 +180,7 @@
           { name: 'Ruben Martins', role: 'Social Media Manager', flag: '🇵🇹' },
           { name: 'Jose Miguel Nora', role: 'Sports Lawyer', flag: '🇵🇹' },
         ] as media}
-          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-accent/30 transition-colors">
+          <div class="bg-sport-light rounded-xl p-4 border border-sport-gray-100 hover:border-sport-red/30 transition-colors">
             <div class="flex items-center gap-3">
               <div class="w-10 h-10 bg-sport-gold/10 rounded-full flex items-center justify-center text-lg">{media.flag}</div>
               <div>
@@ -197,11 +197,11 @@
 </section>
 
 <!-- CTA -->
-<section class="py-16 bg-sport-primary">
+<section class="py-16 bg-sport-red">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-2xl font-sport-heading font-black text-white mb-4">Want to Join Our Faculty?</h2>
     <p class="text-sport-gray-300 font-sport-body mb-6">We're always looking for exceptional professionals to share their knowledge.</p>
-    <a href="/contact" class="inline-flex px-8 py-3 bg-sport-accent hover:bg-sport-gold text-white font-sport-heading font-semibold rounded-xl transition-colors">
+    <a href="/contact" class="inline-flex px-8 py-3 bg-sport-red hover:bg-sport-gold text-white font-sport-heading font-semibold rounded-xl transition-colors">
       Apply as Faculty
     </a>
   </div>

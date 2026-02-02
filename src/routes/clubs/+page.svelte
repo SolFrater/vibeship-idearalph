@@ -59,7 +59,7 @@
           <ul class="space-y-2">
             {#each service.features as feature}
               <li class="flex items-center gap-2 text-sm text-sport-gray-600">
-                <svg class="w-4 h-4 text-sport-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <svg class="w-4 h-4 text-sport-red shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                 {feature}
               </li>
             {/each}
@@ -92,14 +92,14 @@
 </section>
 
 <!-- CTA -->
-<section class="py-24 bg-sport-primary">
+<section class="py-24 bg-sport-red">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-3xl font-sport-heading font-black text-white mb-4">Let's Build Your Program</h2>
     <p class="text-sport-gray-300 font-sport-body mb-8 max-w-2xl mx-auto">
       Tell us about your club's needs and we'll design a custom training solution.
       No obligation — we start with a free consultation.
     </p>
-    <a href="/contact" class="inline-flex px-8 py-4 bg-sport-accent hover:bg-sport-gold text-white font-sport-heading font-bold rounded-xl transition-colors">
+    <a href="/contact" class="inline-flex px-8 py-4 bg-sport-red hover:bg-sport-gold text-white font-sport-heading font-bold rounded-xl transition-colors">
       Request a Consultation
     </a>
   </div>

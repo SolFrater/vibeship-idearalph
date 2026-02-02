@@ -20,21 +20,21 @@
 </section>
 
 <!-- Credit Info -->
-<section class="py-8 bg-sport-accent/10 border-b border-sport-accent/20">
+<section class="py-8 bg-sport-red/10 border-b border-sport-red/20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-wrap items-center justify-center gap-6 text-sm font-sport-body">
       <div class="flex items-center gap-2">
-        <span class="font-semibold text-sport-primary">In-person:</span>
+        <span class="font-semibold text-sport-red">In-person:</span>
         <span class="text-sport-gray-600">0.2 UC per hour</span>
       </div>
       <div class="w-px h-4 bg-sport-gray-300"></div>
       <div class="flex items-center gap-2">
-        <span class="font-semibold text-sport-primary">Online:</span>
+        <span class="font-semibold text-sport-red">Online:</span>
         <span class="text-sport-gray-600">0.1 UC per hour</span>
       </div>
       <div class="w-px h-4 bg-sport-gray-300"></div>
       <div class="flex items-center gap-2">
-        <span class="font-semibold text-sport-primary">Payment:</span>
+        <span class="font-semibold text-sport-red">Payment:</span>
         <span class="text-sport-gray-600">3 interest-free installments available</span>
       </div>
     </div>
@@ -69,7 +69,7 @@
           featured: true,
         },
       ] as course}
-        <div class="bg-gradient-to-br from-sport-primary to-sport-secondary rounded-2xl overflow-hidden {course.featured ? 'ring-2 ring-sport-gold' : ''}">
+        <div class="bg-gradient-to-br from-sport-red to-sport-secondary rounded-2xl overflow-hidden {course.featured ? 'ring-2 ring-sport-gold' : ''}">
           <div class="p-8">
             <div class="flex items-center justify-between mb-4">
               <span class="text-sport-gold text-xs font-sport-heading font-semibold uppercase tracking-wider">{course.edition}</span>
@@ -85,7 +85,7 @@
               <div class="grid grid-cols-2 gap-2">
                 {#each course.topics as topic}
                   <div class="flex items-center gap-2 text-sport-gray-300 text-sm">
-                    <span class="w-1.5 h-1.5 bg-sport-accent rounded-full shrink-0"></span>
+                    <span class="w-1.5 h-1.5 bg-sport-red rounded-full shrink-0"></span>
                     <span>{topic}</span>
                   </div>
                 {/each}
@@ -100,7 +100,7 @@
                 </div>
                 <span class="text-sport-gray-400 text-xs">{course.format}</span>
               </div>
-              <a href="/contact" class="px-6 py-3 bg-sport-accent hover:bg-white hover:text-sport-primary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+              <a href="/contact" class="px-6 py-3 bg-sport-red hover:bg-white hover:text-sport-red text-white font-sport-heading font-semibold rounded-xl transition-colors">
                 Enroll Now
               </a>
             </div>
@@ -162,16 +162,16 @@
           description: 'Football-specific S&C. Physical preparation, injury prevention, load management, and performance optimization.',
         },
       ] as mc}
-        <div class="bg-white rounded-2xl p-6 border border-sport-gray-100 hover:border-sport-accent/30 hover:shadow-lg transition-all">
+        <div class="bg-white rounded-2xl p-6 border border-sport-gray-100 hover:border-sport-red/30 hover:shadow-lg transition-all">
           <div class="text-3xl mb-3">{mc.icon}</div>
           <h3 class="font-sport-heading font-bold text-sport-dark text-lg mb-2">{mc.title}</h3>
           <p class="text-sport-gray-500 font-sport-body text-sm leading-relaxed mb-4">{mc.description}</p>
           <div class="flex items-center justify-between pt-4 border-t border-sport-gray-100">
             <div class="flex items-baseline gap-2">
-              <span class="text-2xl font-sport-heading font-black text-sport-primary">€{mc.price}</span>
+              <span class="text-2xl font-sport-heading font-black text-sport-red">€{mc.price}</span>
               <span class="text-sm text-sport-gray-400 line-through">€{mc.original}</span>
             </div>
-            <a href="/contact" class="text-sm font-sport-heading font-semibold text-sport-accent hover:text-sport-primary transition-colors">
+            <a href="/contact" class="text-sm font-sport-heading font-semibold text-sport-red hover:text-sport-red transition-colors">
               Enroll →
             </a>
           </div>
@@ -184,7 +184,7 @@
 <!-- E-Learning -->
 <section class="py-24 bg-white">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <span class="text-sport-accent text-sm font-sport-heading font-semibold uppercase tracking-wider">Online Learning</span>
+    <span class="text-sport-red text-sm font-sport-heading font-semibold uppercase tracking-wider">Online Learning</span>
     <h2 class="text-3xl font-sport-heading font-black text-sport-dark mt-3 mb-4">E-Learning Academy</h2>
     <p class="text-sport-gray-500 font-sport-body leading-relaxed mb-8 max-w-2xl mx-auto">
       Access our growing library of courses from anywhere in the world through our dedicated
@@ -192,7 +192,7 @@
       IPDJ credit units.
     </p>
     <a href="https://academy.sportrail.pt" target="_blank" rel="noopener"
-      class="inline-flex px-8 py-4 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+      class="inline-flex px-8 py-4 bg-sport-red hover:bg-red-700 text-white font-sport-heading font-semibold rounded-xl transition-colors">
       Visit Academy Platform →
     </a>
   </div>
