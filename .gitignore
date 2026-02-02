@@ -38,3 +38,13 @@ docs/
 degen-academy/
 degen-academy-desktop/
 degen-academy-mobile/
+
+# Brainstorming & Research (keep private)
+BRAINSTORM_*.md
+LEADMAGNET_*.md
+RESEARCH_*.md
+*.brainstorm.md
+*.research.md
+/brainstorm/
+/research/
+/templates/
