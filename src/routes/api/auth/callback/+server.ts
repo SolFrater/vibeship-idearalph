@@ -1,5 +1,4 @@
 import { env } from '$env/dynamic/private';
-import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async ({ url }) => {
@@ -9,6 +8,17 @@ export const GET: RequestHandler = async ({ url }) => {
 		return new Response('Missing code parameter', { status: 400 });
 	}
 
+	const clientId = env.GITHUB_CLIENT_ID;
+	const clientSecret = env.GITHUB_CLIENT_SECRET;
+
+	// Debug: check if env vars are loaded
+	if (!clientId || !clientSecret) {
+		return new Response(
+			`OAuth configuration error: GITHUB_CLIENT_ID is ${clientId ? 'set' : 'MISSING'}, GITHUB_CLIENT_SECRET is ${clientSecret ? 'set' : 'MISSING'}. Add these environment variables in Vercel project settings.`,
+			{ status: 500 }
+		);
+	}
+
 	const response = await fetch('https://github.com/login/oauth/access_token', {
 		method: 'POST',
 		headers: {
@@ -16,8 +26,8 @@ export const GET: RequestHandler = async ({ url }) => {
 			Accept: 'application/json'
 		},
 		body: JSON.stringify({
-			client_id: env.GITHUB_CLIENT_ID,
-			client_secret: env.GITHUB_CLIENT_SECRET,
+			client_id: clientId,
+			client_secret: clientSecret,
 			code
 		})
 	});
@@ -25,12 +35,15 @@ export const GET: RequestHandler = async ({ url }) => {
 	const data = await response.json();
 
 	if (data.error) {
-		return new Response(`OAuth error: ${data.error_description}`, { status: 400 });
+		return new Response(
+			`OAuth error: ${data.error_description || data.error}. Verify your GitHub OAuth App client_id and client_secret match what is set in Vercel env vars.`,
+			{ status: 400 }
+		);
 	}
 
-	// Decap CMS expects this specific HTML response format
-	const body = `
-<!DOCTYPE html>
+	const tokenData = JSON.stringify({ token: data.access_token, provider: 'github' });
+
+	const body = `<!DOCTYPE html>
 <html>
 <body>
 <script>
@@ -38,7 +51,7 @@ export const GET: RequestHandler = async ({ url }) => {
   function receiveMessage(e) {
     console.log("receiveMessage %o", e);
     window.opener.postMessage(
-      'authorization:github:success:${JSON.stringify({ token: data.access_token, provider: 'github' })}',
+      'authorization:github:success:' + JSON.stringify(${tokenData}),
       e.origin
     );
     window.removeEventListener("message", receiveMessage, false);
