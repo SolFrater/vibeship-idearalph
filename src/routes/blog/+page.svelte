@@ -103,7 +103,7 @@
         <p class="text-sport-gray-500 text-sm mb-4">
           We're building our English content library. Subscribe to be notified when new articles are published.
         </p>
-        <a href="/sportrail/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+        <a href="/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
           Subscribe to Updates
         </a>
       </div>

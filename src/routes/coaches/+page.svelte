@@ -201,7 +201,7 @@
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <h2 class="text-2xl font-sport-heading font-black text-white mb-4">Want to Join Our Faculty?</h2>
     <p class="text-sport-gray-300 font-sport-body mb-6">We're always looking for exceptional professionals to share their knowledge.</p>
-    <a href="/sportrail/contact" class="inline-flex px-8 py-3 bg-sport-accent hover:bg-sport-gold text-white font-sport-heading font-semibold rounded-xl transition-colors">
+    <a href="/contact" class="inline-flex px-8 py-3 bg-sport-accent hover:bg-sport-gold text-white font-sport-heading font-semibold rounded-xl transition-colors">
       Apply as Faculty
     </a>
   </div>

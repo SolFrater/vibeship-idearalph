@@ -50,7 +50,7 @@
               </div>
             {/each}
           </div>
-          <a href="/sportrail/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+          <a href="/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
             Register Interest
           </a>
         </div>
@@ -92,7 +92,7 @@
               </div>
             {/each}
           </div>
-          <a href="/sportrail/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
+          <a href="/contact" class="inline-flex px-6 py-3 bg-sport-primary hover:bg-sport-secondary text-white font-sport-heading font-semibold rounded-xl transition-colors">
             Register Interest
           </a>
         </div>

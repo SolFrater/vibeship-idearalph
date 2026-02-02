@@ -99,7 +99,7 @@
       Tell us about your club's needs and we'll design a custom training solution.
       No obligation — we start with a free consultation.
     </p>
-    <a href="/sportrail/contact" class="inline-flex px-8 py-4 bg-sport-accent hover:bg-sport-gold text-white font-sport-heading font-bold rounded-xl transition-colors">
+    <a href="/contact" class="inline-flex px-8 py-4 bg-sport-accent hover:bg-sport-gold text-white font-sport-heading font-bold rounded-xl transition-colors">
       Request a Consultation
     </a>
   </div>

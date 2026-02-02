@@ -17,7 +17,7 @@
         across Portugal and Spain. Train where Europe's best players are made.
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
-        <a href="/sportrail/contact" class="px-8 py-4 bg-sport-accent hover:bg-sport-secondary text-white text-center font-sport-heading font-bold rounded-xl transition-colors text-lg">
+        <a href="/contact" class="px-8 py-4 bg-sport-accent hover:bg-sport-secondary text-white text-center font-sport-heading font-bold rounded-xl transition-colors text-lg">
           Apply Now
         </a>
         <a href="#programs" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-center font-sport-heading font-bold rounded-xl transition-colors text-lg border border-white/20">
@@ -313,7 +313,7 @@
       into European football — we're here to help you get there.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/sportrail/contact" class="px-8 py-4 bg-sport-accent hover:bg-white hover:text-sport-dark text-white font-sport-heading font-bold rounded-xl transition-colors text-lg">
+      <a href="/contact" class="px-8 py-4 bg-sport-accent hover:bg-white hover:text-sport-dark text-white font-sport-heading font-bold rounded-xl transition-colors text-lg">
         Apply Now
       </a>
       <a href="mailto:geral@sportrail.pt" class="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-sport-heading font-bold rounded-xl transition-colors text-lg border border-white/20">
