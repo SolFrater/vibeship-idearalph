@@ -41,7 +41,7 @@ export const GET: RequestHandler = async ({ url }) => {
 		);
 	}
 
-	const tokenData = JSON.stringify({ token: data.access_token, provider: 'github' });
+	const token = data.access_token;
 
 	const body = `<!DOCTYPE html>
 <html>
@@ -51,7 +51,7 @@ export const GET: RequestHandler = async ({ url }) => {
   function receiveMessage(e) {
     console.log("receiveMessage %o", e);
     window.opener.postMessage(
-      'authorization:github:success:' + JSON.stringify(${tokenData}),
+      'authorization:github:success:{"token":"${token}","provider":"github"}',
       e.origin
     );
     window.removeEventListener("message", receiveMessage, false);
