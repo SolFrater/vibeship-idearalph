@@ -38,3 +38,7 @@ docs/
 degen-academy/
 degen-academy-desktop/
 degen-academy-mobile/
+
+# Scout
+__pycache__/
+scout_logs/
