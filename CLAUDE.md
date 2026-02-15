@@ -1,503 +1,447 @@
 # CLAUDE.md - IdeaRalph Project Instructions
 
-## Auto-Save to Mind v5
+## Project Overview
 
-**IMPORTANT:** Automatically save important conversations to Mind v5 without being asked.
+**IdeaRalph** (v2.2.0) is an AI-powered startup idea generation and validation platform built with SvelteKit. It uses a "Ralph Loop" — an iterative AI refinement cycle — to generate, score, and refine startup ideas until they reach a quality threshold. The project also serves as the Sportrail football website at its root routes.
 
-### What to Save:
-- **Decisions** (temporal_level: 4, salience: 0.9+) — Strategic choices, positioning, token mechanics
-- **Events** (temporal_level: 3, salience: 0.8+) — Launch dates, milestones, announcements
-- **Observations** (temporal_level: 3, salience: 0.7+) — Technical changes, website updates, insights
+**Repository:** `SolFrater/vibeship-idearalph`
 
-### How to Save:
+---
+
+## Quick Reference
+
 ```bash
-curl -s -X POST http://localhost:8080/v1/memories/ \
-  -H "Content-Type: application/json" \
-  -d '{"content": "...", "temporal_level": 3, "salience": 0.8, "content_type": "decision"}'
+# Development
+npm run dev              # Start dev server (port 5200)
+npm run build            # Production build (Vercel adapter)
+npm start                # Run production build
+npm run preview          # Preview production build
+
+# Type checking
+npm run check            # svelte-kit sync + svelte-check
+npm run check:watch      # Watch mode
+
+# Testing & Linting
+npm test                 # Vitest
+npm run lint             # ESLint
+
+# MCP Server (separate package)
+cd mcp-server && npm install && npm run build
+cd mcp-server && npm run dev   # Dev mode with tsx
 ```
-
-### When to Save:
-- After major decisions are made
-- After strategic conversations (like the vibecoin mission)
-- After significant code/website changes
-- After launch planning or milestone setting
-- When the user shares important context about the project
-
-If Mind v5 isn't running (connection refused), start it first:
-```bash
-cd C:/Users/USER/Desktop/the-mind/vibeship-mind && python src/mind/lite_tier.py &
-```
-
----
-
-## H70+ Skill-Driven Development Protocol
-
-**CRITICAL:** This project uses H70+ skills for specialized, production-grade output. Always spawn the right skill before starting any task.
-
-### Skill Spawning Rule
-
-> **Before writing ANY code, ALWAYS spawn the relevant H70+ skill using `spawner_load` or `spawner_skills`.**
->
-> Skills provide: battle-tested patterns, anti-patterns to avoid, disaster stories with $ amounts, detection commands, and emotional anchors that produce 24.2 points better output than vanilla Claude.
-
----
-
-## IdeaRalph Skill Map
-
-### Core Skills for This Project
-
-| Task Domain | Primary Skill | Handoff Skills |
-|-------------|---------------|----------------|
-| **SvelteKit Pages/Routes** | `SvelteKit` | Tailwind CSS UI, TypeScript Strict |
-| **Database/Auth** | `Supabase Backend` | PostgreSQL Wizard, Auth Specialist |
-| **AI/LLM Integration** | `LLM Architect` | Agent Tool Builder, Prompt Engineer |
-| **Styling/UI** | `Tailwind CSS UI` | Branding, Motion Graphics |
-| **TypeScript Types** | `TypeScript Strict Mode` | API Designer |
-| **API Routes** | `API Designer` | Backend Engineering |
-| **Testing** | `Test Architect` | QA Engineering |
-| **Security** | `Security Hardening` | Cybersecurity |
-| **Realtime Features** | `Realtime Engineer` | Supabase Backend |
-
-### How to Spawn Skills
-
-```
-// Via MCP tool:
-spawner_skills({ action: "get", name: "SvelteKit" })
-spawner_load({ skill_id: "sveltekit" })
-
-// For handoffs:
-spawner_load({
-  skill_id: "supabase-backend",
-  context: "Building ideas table with RLS for user ownership"
-})
-```
-
----
-
-## Task → Skill Mapping
-
-### When Building SvelteKit Components
-```
-SPAWN: SvelteKit
-HANDOFF TO: Tailwind CSS UI (for styling)
-HANDOFF TO: TypeScript Strict Mode (for types)
-```
-
-**SvelteKit skill owns:**
-- +page.svelte, +page.server.ts files
-- Load functions and form actions
-- Svelte 5 runes ($state, $derived, $effect)
-- Hooks and middleware
-- SSR/hydration patterns
-
-### When Building Database Schema
-```
-SPAWN: Supabase Backend
-HANDOFF TO: PostgreSQL Wizard (for complex queries)
-HANDOFF TO: Auth Specialist (for auth tables)
-```
-
-**Supabase Backend skill owns:**
-- Table schema design
-- RLS policies (ALWAYS enable!)
-- Migrations
-- Realtime subscriptions
-- Storage buckets
-
-### When Building AI Features (Ralph Loop)
-```
-SPAWN: LLM Architect
-HANDOFF TO: Agent Tool Builder (for function calling)
-HANDOFF TO: Prompt Engineer (for prompt templates)
-```
-
-**LLM Architect skill owns:**
-- Prompt engineering
-- Structured output
-- Streaming responses
-- Token optimization
-- Hallucination mitigation
-
-### When Building UI Components
-```
-SPAWN: Tailwind CSS UI
-HANDOFF TO: Motion Graphics (for animations)
-HANDOFF TO: Branding (for design system)
-```
-
-**Tailwind CSS UI skill owns:**
-- Utility class patterns
-- Responsive design
-- Dark mode
-- Component extraction
-- Animation classes
-
-### When Writing TypeScript
-```
-SPAWN: TypeScript Strict Mode
-HANDOFF TO: API Designer (for API types)
-```
-
-**TypeScript Strict skill owns:**
-- Type definitions
-- Generics
-- Zod schemas
-- Type guards
-- No `any` allowed
-
----
-
-## Handoff Protocol
-
-When a skill detects work outside its domain:
-
-1. **Acknowledge**: "This involves [topic]. Handing off to [Specialist]."
-2. **Summarize Context**: What's built, current file, user goal
-3. **Execute**: `spawner_load({ skill_id: "target-skill", context: "..." })`
-4. **Stop**: Let the new skill take over
-
-### Handoff Triggers
-
-| If you see... | Handoff to... |
-|---------------|---------------|
-| Database, tables, RLS, Supabase | `Supabase Backend` |
-| Styling, CSS, Tailwind, responsive | `Tailwind CSS UI` |
-| Types, TypeScript, generics, Zod | `TypeScript Strict Mode` |
-| LLM, prompts, Claude, streaming | `LLM Architect` |
-| Auth, login, session, JWT | `Auth Specialist` |
-| API routes, endpoints, REST | `API Designer` |
-| Tests, testing, vitest, playwright | `Test Architect` |
-| Security, XSS, injection, secrets | `Security Hardening` |
-| Deploy, Vercel, production | `Vercel Deployment` |
-
----
-
-## Project-Specific Commands
-
-### Start Development
-```bash
-npm run dev
-```
-
-### Database Operations
-```bash
-# Generate types from Supabase
-npx supabase gen types typescript --project-id <id> > src/lib/types/database.ts
-
-# Run migrations
-npx supabase db push
-```
-
-### Mind v5 Integration
-```bash
-# API running at http://localhost:8080
-# Dashboard at http://localhost:8501
-
-# Save memory
-curl -X POST http://localhost:8080/v1/memories/ \
-  -H "Content-Type: application/json" \
-  -d '{"content": "...", "temporal_level": 3, "salience": 0.8}'
-```
-
----
-
-## Architecture Overview
-
-```
-IdeaRalph/
-├── src/
-│   ├── lib/
-│   │   ├── components/     # Svelte components (Tailwind CSS UI skill)
-│   │   ├── ralph/          # AI loop engine (LLM Architect skill)
-│   │   ├── server/         # Server utilities (Supabase Backend skill)
-│   │   ├── stores/         # Svelte stores (SvelteKit skill)
-│   │   └── types/          # TypeScript types (TypeScript Strict skill)
-│   └── routes/
-│       ├── api/            # API routes (API Designer skill)
-│       └── [pages]/        # Page routes (SvelteKit skill)
-├── supabase/
-│   └── migrations/         # DB migrations (Supabase Backend skill)
-└── docs/
-    ├── ARCHITECTURE.md     # System design
-    └── IMPLEMENTATION_PLAN.md
-```
-
----
-
-## Quality Gates
-
-Before completing any task, the relevant skill should verify:
-
-1. **Patterns Used**: Are production-ready patterns from the skill applied?
-2. **Anti-Patterns Avoided**: Check against skill's anti-pattern list
-3. **Sharp Edges Handled**: Review skill's gotchas section
-4. **Detection Commands Run**: Use skill's grep/detection commands
-5. **Types Complete**: No `any`, proper Zod validation at boundaries
 
 ---
 
 ## Tech Stack
 
-| Layer | Technology | Skill |
-|-------|------------|-------|
-| Frontend | Svelte 5 + SvelteKit | SvelteKit |
-| Styling | TailwindCSS | Tailwind CSS UI |
-| Database | Supabase (Postgres) | Supabase Backend |
-| Auth | Supabase Auth | Auth Specialist |
-| AI | Anthropic Claude | LLM Architect |
-| Types | TypeScript + Zod | TypeScript Strict Mode |
-| Testing | Vitest + Playwright | Test Architect |
-| Deploy | Vercel | Vercel Deployment |
+| Layer | Technology | Version |
+|-------|------------|---------|
+| Framework | SvelteKit | 2.20.0 |
+| UI Library | Svelte 5 (runes) | 5.20.0 |
+| Styling | TailwindCSS | 3.4.17 |
+| Database | Supabase (PostgreSQL) | SDK 2.49.1 |
+| Auth | Supabase Auth | via @supabase/ssr 0.5.2 |
+| AI | Anthropic Claude | SDK 0.39.0 (model: claude-sonnet-4-20250514) |
+| Validation | Zod | 3.24.2 |
+| Build | Vite | 5.4.0 |
+| TypeScript | Strict mode | 5.7.3 |
+| Testing | Vitest | 3.0.0 |
+| Deployment | Vercel | via @sveltejs/adapter-vercel |
+| Markdown | marked | 17.0.1 |
+
+---
+
+## Project Structure
+
+```
+vibeship-idearalph/
+├── src/
+│   ├── app.html                      # Root HTML template
+│   ├── app.css                       # Global styles (Tailwind directives + custom)
+│   ├── app.d.ts                      # Global TypeScript declarations
+│   ├── lib/
+│   │   ├── components/
+│   │   │   ├── ui/                   # Generic UI components
+│   │   │   │   ├── PMFRadar.svelte       # Radar chart for PMF scores
+│   │   │   │   ├── DopeMeter.svelte      # Dope level gauge (0-5)
+│   │   │   │   ├── ChaosSlider.svelte    # Chaos level control (1-10)
+│   │   │   │   ├── LoadingSpinner.svelte
+│   │   │   │   ├── Toast.svelte
+│   │   │   │   └── Navbar.svelte
+│   │   │   ├── ralph/                # Ralph-specific components
+│   │   │   │   ├── RalphAvatar.svelte
+│   │   │   │   ├── ThoughtBubble.svelte
+│   │   │   │   ├── IdeaCard.svelte
+│   │   │   │   └── HeroVideo.svelte
+│   │   │   └── index.ts              # Component barrel exports
+│   │   ├── ralph/                    # AI loop engine (server-side)
+│   │   │   ├── types.ts             # Core type definitions
+│   │   │   ├── engine.ts            # Ralph Loop orchestration
+│   │   │   └── prompts.ts           # Claude prompt templates
+│   │   ├── server/
+│   │   │   └── claude.ts            # Claude API wrapper (server-only)
+│   │   ├── stores/
+│   │   │   ├── ralph.svelte.ts      # Ralph state (Svelte 5 runes)
+│   │   │   └── user.svelte.ts       # User/auth state
+│   │   └── types/
+│   │       └── database.ts          # Supabase generated types
+│   └── routes/
+│       ├── +layout.svelte            # Root layout (Sportrail navbar + footer)
+│       ├── +page.svelte              # Homepage (Sportrail)
+│       ├── +page.server.ts
+│       ├── about/                    # About page
+│       ├── blog/                     # Blog listing
+│       ├── clubs/                    # Club information
+│       ├── coaches/                  # Coach profiles
+│       ├── conferences/              # Conferences
+│       ├── contact/                  # Contact form (with server action)
+│       ├── courses/                  # Coach education
+│       ├── players/                  # Player programs
+│       └── api/
+│           └── auth/                 # Supabase auth endpoints
+│               ├── +server.ts
+│               └── callback/+server.ts
+├── mcp-server/                       # MCP Server (separate npm package)
+│   ├── src/
+│   │   ├── index.ts                  # Server init & tool routing
+│   │   └── tools.ts                  # Tool schemas & prompt handlers
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── README.md
+├── cli/                              # CLI installer package
+│   ├── bin/cli.js
+│   └── package.json
+├── content/                          # CMS content (JSON files)
+│   ├── pages/                        # Page content (homepage, about, etc.)
+│   ├── blog/
+│   ├── events/
+│   └── experts/
+├── static/                           # Static assets
+│   ├── admin/                        # Decap CMS admin panel
+│   │   ├── config.yml
+│   │   └── index.html
+│   ├── images/
+│   ├── videos/
+│   └── uploads/
+├── supabase/
+│   ├── migrations/
+│   │   └── 20240101000000_initial_schema.sql
+│   ├── seed.sql
+│   └── config.toml
+├── prompts/                          # Prompt template files
+│   └── ralph-idea-loop.md
+├── .claude/                          # Claude Code plugin
+│   ├── settings.json
+│   └── commands/
+│       ├── ralph-loop.md             # /ralph-loop command
+│       └── ralph-prd.md              # /ralph-prd command
+├── scout.py                          # Soccer scouting script (Python)
+├── scout_web.py                      # Scout web UI
+├── scout_scheduler.py                # Scout scheduler
+├── watchlist.json                    # Player watchlist data
+├── package.json
+├── tsconfig.json
+├── svelte.config.js
+├── vite.config.ts
+├── tailwind.config.js
+├── postcss.config.js
+├── .env.example
+└── .gitignore
+```
+
+---
+
+## Architecture
+
+### SvelteKit Configuration
+
+- **Adapter:** `@sveltejs/adapter-vercel` (Vercel deployment)
+- **Preprocessor:** `vitePreprocess()`
+- **Dev server port:** 5200
+- **Path aliases:**
+  - `$lib` → `src/lib`
+  - `$components` → `src/lib/components`
+  - `$stores` → `src/lib/stores`
+  - `$ralph` → `src/lib/ralph`
+  - `$server` → `src/lib/server`
+
+### TypeScript
+
+- **Strict mode** enabled
+- `moduleResolution: "bundler"`
+- `resolveJsonModule: true` (for CMS content imports)
+- Extends `.svelte-kit/tsconfig.json`
+
+### State Management
+
+Uses **Svelte 5 runes** (`$state`, `$derived`, `$derived.by`) via singleton store pattern. See `src/lib/stores/ralph.svelte.ts` for the primary example. Stores are created as closures that return getter properties and action methods.
+
+### Content Management
+
+Pages read content from static JSON files in `content/pages/`. Decap CMS is configured at `/admin` for editing these files. JSON is imported statically for Vercel compatibility (no `readFileSync`).
+
+---
+
+## Core Domain: Ralph Loop
+
+### How It Works
+
+1. **Generate** — `generateIdea()` creates a startup idea using Claude with adjustable chaos level (1-10)
+2. **Score** — Each idea is scored on 6 PMF dimensions (0-10 scale) and assigned a dope level (0-5)
+3. **Refine** — `refineIdea()` iteratively improves the idea until it reaches dope level 4+ or hits max iterations
+4. **PRD** — `generatePRDByLevel()` produces a Product Requirements Document at napkin/science-fair/genius level
+
+### PMF Scoring Dimensions (in-app, 6 dimensions)
+
+| Dimension | Description |
+|-----------|-------------|
+| `marketSize` | How big is the potential market? |
+| `problemSeverity` | How painful is the problem? |
+| `solutionFit` | How well does the idea solve it? |
+| `competition` | How crowded is the space? (lower = more competition) |
+| `vibeCodeable` | Can a vibe coder build this? |
+| `virality` | Will people share this? |
+
+### PMF Scoring Dimensions (MCP server, 10 dimensions)
+
+The MCP server uses an expanded 10-dimension scoring: Problem Clarity, Market Size, Uniqueness, Feasibility, Monetization, Timing, Virality, Defensibility, Team Fit, Ralph Factor.
+
+### Dope Levels
+
+| Level | Label |
+|-------|-------|
+| 0 | Ralph ate the idea |
+| 1 | Tastes like burning |
+| 2 | My cat's breath level |
+| 3 | Paste-worthy |
+| 4 | Gold star material |
+| 5 | SUPER NINTENDO DOPE |
+
+### Key Types (`src/lib/ralph/types.ts`)
+
+- `RalphIdea` — Core idea entity with status lifecycle: sandbox → validating → refining → completed → archived
+- `RalphIteration` — Tracks each refinement step
+- `RalphResponse` — Claude's structured JSON response
+- `RalphLoopConfig` — Loop configuration (maxIterations, dopeThreshold, chaosLevel)
+- `PMFScores` — 6-dimension scoring object
+- `PRDLevel` — `'napkin' | 'science-fair' | 'genius'`
+- `DetailedPRD` — Full structured PRD with 18 sections
+
+### Claude API Usage (`src/lib/server/claude.ts`)
+
+- **Model:** `claude-sonnet-4-20250514`
+- **Singleton client** initialized from `ANTHROPIC_API_KEY` env var
+- `askClaude(prompt, options)` — Single-turn message
+- `chatWithClaude(messages, options)` — Multi-turn conversation
+- `parseClaudeJSON<T>(response)` — Extracts JSON from Claude responses (handles markdown code blocks)
+- Default: `maxTokens: 2048`, `temperature: 0.8`
+- **Server-only** — only import in `+server.ts` or `+page.server.ts`
+
+---
+
+## Database Schema (Supabase)
+
+### Tables
+
+| Table | Purpose | Key Fields |
+|-------|---------|------------|
+| `profiles` | User profiles | id (UUID→auth.users), tier (free/pro/team), spawns_today |
+| `ideas` | Startup ideas | name, raw_idea, refined_idea, status, dope_level (0-5), 6 PMF columns (0-10), chaos_level (1-10) |
+| `idea_iterations` | Refinement history | idea_id, iteration_number, idea_content, dope_level, pmf_scores (JSONB) |
+| `prds` | Generated PRDs | idea_id, user_id, content, markdown, version |
+| `sessions` | Generation sessions | user_id, initial_prompt, chaos_level, ideas_generated |
+| `votes` | Dope/meh voting | idea_id, user_id, vote_type (dope/meh), UNIQUE(idea_id, user_id) |
+
+### Security
+
+- **RLS enabled on ALL tables** — users can only access their own data
+- Auto-profile creation on signup via `handle_new_user()` trigger
+- `updated_at` auto-managed via triggers
+- Daily spawn count reset via `reset_spawn_count()` trigger
+
+### Database Commands
+
+```bash
+npx supabase gen types typescript --project-id <id> > src/lib/types/database.ts
+npx supabase db push
+```
+
+---
+
+## Design System
+
+### Two Theme Systems in Tailwind
+
+**Crayon (IdeaRalph):**
+- `ralph-yellow` (#FFD93D), `playground-green` (#6BCB77), `crayon-red` (#FF6B6B), `sky-blue` (#4D96FF)
+- `chalkboard` (#2D3436), `paper` (#FFF9E6)
+- Fonts: `chalk` (Fredoka One), `handwritten` (Patrick Hand), `body` (Inter)
+- Animations: wiggle, float, pop, scribble, swing, think, bounce-slow
+- Shadow: `crayon` (4px 4px 0px), `crayon-lg` (6px 6px 0px)
+- Border radius: `wobbly` (organic blob shape)
+
+**Sportrail (Football site):**
+- `sport-red` (#ff2a2a), `sport-gold` (#ffbb00), `sport-blue` (#1e73be)
+- Gray scale: 50-900
+- Fonts: `sport-heading` (Poppins), `sport-body` (Poppins)
+
+**Dark mode:** Enabled via `class` strategy.
+
+---
+
+## MCP Server (v2.3.0)
+
+Located in `mcp-server/`. A **prompt provider** — returns structured prompts for Claude Code to process directly, no API key needed.
+
+### Tools
+
+| Tool | Description |
+|------|-------------|
+| `idearalph_brainstorm` | Generate startup ideas for a topic |
+| `idearalph_validate` | Score idea on 10 PMF dimensions |
+| `idearalph_refine` | Ralph Loop refinement (single/target/max mode) |
+| `idearalph_prd` | Generate PRD (napkin/science-fair/genius) |
+| `idearalph_design` | UI/UX design from a single vibe question |
+| `idearalph_architecture` | Tech stack & implementation plan |
+| `idearalph_checklist` | YC-level launch checklist (Tasks.md + Checklist.md) |
+
+### Build & Run
+
+```bash
+cd mcp-server
+npm install
+npm run build     # Compile TypeScript → dist/
+npm run dev       # Dev mode with tsx
+```
+
+### Configure in Claude Code
+
+```json
+{
+  "mcpServers": {
+    "idearalph": {
+      "command": "node",
+      "args": ["<path>/mcp-server/dist/index.js"]
+    }
+  }
+}
+```
+
+---
+
+## Claude Code Plugin
+
+Located in `.claude/commands/`. Two slash commands:
+
+- `/ralph-loop "prompt"` — Iterative idea generation until dope level 9.9+
+- `/ralph-prd "idea"` — Generate PRD with `--level` flag (napkin/science-fair/genius)
 
 ---
 
 ## Environment Variables
 
 ```env
-# Supabase
-PUBLIC_SUPABASE_URL=
-PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
+# Supabase (PUBLIC_ vars exposed to client)
+PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key   # Server-only, never expose
 
-# Anthropic
-ANTHROPIC_API_KEY=
+# Anthropic (server-only)
+ANTHROPIC_API_KEY=sk-ant-your-key
 
 # App
 PUBLIC_APP_URL=http://localhost:5173
+PUBLIC_APP_NAME=IdeaRalph
 ```
 
 ---
 
-## Remember
+## Conventions & Rules
 
-1. **Always spawn skills** - Don't write code without loading the relevant H70+ skill
-2. **Handoff correctly** - When crossing domains, explicitly hand off to the specialist
-3. **Use skill patterns** - Each skill has battle-tested code patterns
-4. **Avoid anti-patterns** - Each skill lists what NOT to do
-5. **Run detection commands** - Find issues before they become disasters
-6. **RLS on everything** - Supabase tables MUST have RLS enabled
-7. **No `any` types** - TypeScript strict mode, always
-8. **Server-first** - Use +page.server.ts for sensitive operations
+### Code Style
+
+1. **TypeScript strict mode** — no `any` types. Use Zod for runtime validation at boundaries.
+2. **Svelte 5 runes** — use `$state`, `$derived`, `$derived.by` for reactivity. Not legacy stores.
+3. **Server-first** — use `+page.server.ts` for data loading and sensitive operations. Never import `$lib/server/*` or `$lib/ralph/engine.ts` in client code.
+4. **Path aliases** — use `$lib`, `$components`, `$stores`, `$ralph`, `$server` instead of relative paths.
+5. **ES modules** — project uses `"type": "module"` throughout.
+
+### Database
+
+1. **RLS on every table** — no exceptions.
+2. **User-owned data** — all tables reference `profiles.id` and RLS policies enforce ownership.
+3. **PMF scores** stored as individual integer columns (not JSONB) in the `ideas` table for queryability.
+
+### Security
+
+1. Never expose `SUPABASE_SERVICE_ROLE_KEY` or `ANTHROPIC_API_KEY` to the client.
+2. All Claude API calls go through `$lib/server/claude.ts` which is server-only.
+3. `PUBLIC_*` env vars are the only ones safe for client-side code.
+
+### Components
+
+1. UI components live in `src/lib/components/ui/`.
+2. Ralph-specific components live in `src/lib/components/ralph/`.
+3. Export all components from `src/lib/components/index.ts`.
+
+### Content
+
+1. Page content comes from `content/pages/*.json` files, imported statically.
+2. Decap CMS at `/admin` for editing content.
+3. Do not use `readFileSync` — use static imports for Vercel compatibility.
 
 ---
 
 ## PRD Generation Levels
 
-IdeaRalph supports three PRD (Product Requirements Document) levels:
-
-### Level: `napkin` (Default)
-- ~10 sections
-- Quick sketch PRD
-- Good for initial idea assessment
-- ~1-2 pages
-
-### Level: `science-fair`
-- 18 comprehensive sections
-- 15-20 user stories
-- Full technical architecture
-- Competitive analysis
-- Budget estimates
-- Timeline with phases
-- Risk assessment
-- ~10-15 pages
-
-### Level: `genius`
-- Everything in `science-fair`
-- Returns both Markdown AND structured JSON
-- JSON is typed with full TypeScript interfaces
-- Ready for database storage or programmatic use
-- For builders who want the complete package
-
-### API Usage
-
-```typescript
-// Napkin PRD (quick sketch)
-POST /api/prd/generate
-{ idea, name, pmfScores, level: "napkin" }
-
-// Science Fair PRD (full project)
-POST /api/prd/generate
-{ idea, name, pmfScores, level: "science-fair" }
-
-// Genius PRD (returns markdown + JSON)
-POST /api/prd/generate
-{ idea, name, pmfScores, level: "genius" }
-```
-
-### PRD Types (TypeScript)
-
-Key interfaces in `src/lib/ralph/types.ts`:
-- `PRDLevel`: 'napkin' | 'science-fair' | 'genius'
-- `DetailedPRD`: Full structured PRD
-- `UserPersona`: Target user definition
-- `UserStory`: User story with acceptance criteria
-- `FeatureSpec`: Feature specifications
-- `Competitor`: Competitive analysis entry
-- `Risk`: Risk assessment entry
+| Level | Sections | Output | Use Case |
+|-------|----------|--------|----------|
+| `napkin` | ~10 | Markdown only | Quick idea sketch |
+| `science-fair` | 18 | Markdown only | Full project spec |
+| `genius` | 18 | Markdown + typed JSON | Database storage, programmatic use |
 
 ---
 
-## Claude Code Plugin
+## Current Routes
 
-IdeaRalph can be used as a Claude Code plugin for idea generation directly in your IDE.
+The root site serves **Sportrail** (football/soccer platform). IdeaRalph functionality is accessed via the MCP server, Claude Code plugin commands, or API routes.
 
-### Plugin Commands
-
-```bash
-# Generate idea with Ralph Loop (iterates until dope level 9.9+)
-/ralph-loop "Your idea prompt" --max-iterations 30
-
-# Generate detailed PRD for an existing idea
-/ralph-prd --level detailed
-
-# Quick idea validation
-/ralph-validate "Your idea description"
-```
-
-### Plugin Installation
-
-The plugin lives in `.claude/commands/` and can be installed via:
-
-```bash
-# Copy to your Claude Code commands directory
-cp -r plugins/idearalph ~/.claude/commands/
-```
-
-### Plugin Features
-
-1. **Ralph Loop**: Iterative idea refinement until score threshold
-2. **PMF Scoring**: 10-dimension scoring (now includes problem clarity, uniqueness, feasibility, timing, Ralph Factor)
-3. **PRD Generation**: Napkin, Science-Fair, or Genius level
-4. **JSON Output**: Structured data for further processing
-5. **Iteration History**: Track how ideas evolved
+| Route | Purpose | Server Data |
+|-------|---------|-------------|
+| `/` | Sportrail homepage | Yes |
+| `/about` | About page | Yes |
+| `/players` | Player programs | Yes |
+| `/coaches` | Coach profiles | No |
+| `/courses` | Coach education | Yes |
+| `/contact` | Contact form | Yes (form action) |
+| `/clubs` | Club information | No |
+| `/blog` | Blog listing | No |
+| `/conferences` | Conferences | No |
+| `/api/auth` | Supabase auth | - |
+| `/api/auth/callback` | OAuth callback | - |
+| `/admin` | Decap CMS (static) | - |
 
 ---
 
-## MCP Server v2.2
+## Scout System (Python)
 
-IdeaRalph works as an MCP (Model Context Protocol) server, enabling Claude to automatically invoke Ralph tools during brainstorming sessions.
+Separate Python scripts for soccer player scouting analysis:
 
-**No API key required!** The MCP is a prompt provider - it returns structured prompts that Claude Code processes directly.
+- `scout.py` — Off-field behavior analysis engine
+- `scout_web.py` — Web UI for scout
+- `scout_scheduler.py` — Scheduled task runner
+- `watchlist.json` — Player watchlist data
 
-> **UX Documentation**: See `docs/MCP_UX_PATTERNS.md` for detailed UX guidelines, Spawner integration flow, and session continuity patterns.
+These are independent of the SvelteKit application.
 
-### How It Works
+---
 
-```
-Old way:  User → Claude Code → MCP → Anthropic API → Response (needed API key!)
-New way:  User → Claude Code → MCP → Returns prompt → Claude processes directly
-```
+## Git History Context
 
-### MCP Tools Available
+The project evolved through several phases:
+1. IdeaRalph AI idea generator (original)
+2. Sportrail football website (current root site)
+3. Soccer scouting scripts (latest addition)
+4. MCP server for Claude Code integration
 
-| Tool | Description |
-|------|-------------|
-| `idearalph_brainstorm` | Generate and score startup ideas for a topic |
-| `idearalph_validate` | Validate an idea on 10 PMF dimensions |
-| `idearalph_refine` | Iteratively improve idea with modes: single, target, max |
-| `idearalph_prd` | Generate PRD at napkin/science-fair/genius level |
-| `idearalph_design` | Design UI with ONE question - infers audience, finds references |
-| `idearalph_architecture` | Get implementation plan (defaults to SvelteKit) |
-| `idearalph_checklist` | **NEW!** Generate YC-level checklist (Tasks.md + Checklist.md) |
-
-### MCP Installation
-
-1. **Build the server**:
-   ```bash
-   cd mcp-server
-   npm install
-   npm run build
-   ```
-
-2. **Configure Claude Code** (add to MCP settings):
-   ```json
-   {
-     "mcpServers": {
-       "idearalph": {
-         "command": "node",
-         "args": ["<path>/mcp-server/dist/index.js"]
-       }
-     }
-   }
-   ```
-
-   That's it - no API key needed!
-
-3. **Use naturally**: Just ask Claude to brainstorm ideas - it will invoke the tools automatically!
-
-### The Flow (v2.2)
-
-```
-Brainstorm → Validate → Refine → PRD → Design → Architecture → Checklist → Build!
-                                         ↑                        ↑
-                                   ONE question:            YC-level checklist:
-                                   "What vibe?"             Tasks.md + Checklist.md
-                                         ↓                        ↓
-                                   AI infers audience        Security, Legal,
-                                   from PRD, finds refs      Analytics, Growth
-```
-
-Each tool suggests the next step. The **Design** phase:
-1. Asks ONE question: "What vibe?" (clean/bold/dark/playful)
-2. **Loads Spawner skills**: UX Design, UI Design, Tailwind CSS UI
-3. Analyzes PRD to infer target audience automatically
-4. Finds reference sites that audience loves (project-specific)
-5. Generates design using skill patterns:
-   - Color palette (UI Design's contrast rules)
-   - Typography (UI Design's type scale)
-   - Spacing (UI Design's 8pt grid)
-   - Landing page wireframe (UX Design's patterns)
-   - Component specs with ALL states (UI Design's component mapping)
-   - Tailwind config (Tailwind CSS UI's token system)
-6. Builds ONE page first with SvelteKit, iterates from there (KISS principle)
-
-The **Checklist** phase (NEW in v2.2):
-1. **Loads Spawner skills**: YC Playbook, Growth Strategy, Product Strategy
-2. Generates TWO files with YC-level launch standards:
-   - **Tasks.md**: Actionable tasks by P0/P1/P2 priority with owners and status
-   - **Checklist.md**: Comprehensive pre-launch and post-launch checklist
-3. Covers all critical areas:
-   - 🔴 Security (OWASP, auth, RLS, rate limiting)
-   - 📜 Legal (ToS, Privacy Policy, GDPR)
-   - 📊 Analytics (product analytics, error tracking, session replay)
-   - 📝 Content & SEO (meta tags, OG images, sitemap)
-   - 🚀 Growth (viral loops, referral, onboarding)
-   - 🏗️ Infrastructure (monitoring, backups, CI/CD)
-   - 📢 Launch tactics (Product Hunt, HN, social)
-4. Prioritizes ruthlessly: P0 items (security, legal) are non-negotiable; rest can iterate post-launch
-
-### Refinement Modes
-
-- **single**: One round of feedback
-- **target**: Keep refining until target score (default 9.5)
-- **max**: Run all iterations for maximum polish
-
-See `mcp-server/README.md` for full documentation.
-
-### Spawner Integration
-
-After architecture generation, IdeaRalph checks for Spawner and handles the handoff:
-
-**Default Stack** (SvelteKit-first, not Next.js):
-- **Frontend**: SvelteKit (simpler, faster, less boilerplate)
-- **Styling**: Tailwind CSS
-- **Backend**: Supabase (Postgres + Auth + Storage)
-- **Deploy**: Vercel
-
-**If Spawner is available:**
-- Offers to start building immediately
-- Loads appropriate skills (SvelteKit, supabase-backend, tailwind-ui, etc.)
-
-**If Spawner is NOT available:**
-- Explains benefits: FREE, 450+ skills, better output
-- Offers to install automatically (Claude handles MCP config)
-- Saves work to files first
-- Provides resume prompt for after restart
-
-**Key UX Principles:**
-1. Never dump commands - always ASK what user wants
-2. Offer to do things FOR them (don't explain how)
-3. Always include a "pause" option
-4. Session continuity via resume prompts
-
-See `docs/MCP_UX_PATTERNS.md` for the complete UX specification.
+Recent commits focused on Sportrail branding, CMS integration, Vercel deployment fixes, and the soccer scouting feature.
